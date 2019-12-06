@@ -1,5 +1,6 @@
 require("dotenv").config();
 var express = require("express");
+let socket = require('socket.io')
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
@@ -35,13 +36,27 @@ if (process.env.NODE_ENV === "test") {
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+  let server = app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
       PORT
     );
   });
+
+  //socket connection established
+  let io = socket(server);
+  io.on('connection', (socket) =>{
+    console.log('made socket connection', socket.id);
+    
+    socket.on('chat', (data)=>{
+      io.sockets.emit('chat', data);
+    });
+
+    socket.on('typing', (data)=>{
+      socket.broadcast.emit('typing', data)
+    })
+  })
 });
 
 module.exports = app;
