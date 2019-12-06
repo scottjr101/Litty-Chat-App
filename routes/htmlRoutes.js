@@ -3,19 +3,19 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Litty.findAll({}).then(function(dbLittys) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        Littys: dbLittys
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  // Load Litty page and pass in an Litty by id
+  app.get("/Litty/:id", function(req, res) {
+    db.Litty.findOne({ where: { id: req.params.id } }).then(function(dbLitty) {
+      res.render("Litty", {
+        Litty: dbLitty
       });
     });
   });
