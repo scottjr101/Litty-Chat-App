@@ -49,12 +49,14 @@ db.sequelize.sync(syncOptions).then(function() {
   io.on('connection', (socket) =>{
     console.log('made socket connection', socket.id);
     
-    socket.on('chat', (data)=>{
+    socket.on('chat', function(data){
       io.sockets.emit('chat', data);
+      console.log('chat working')
     });
 
-    socket.on('typing', (data)=>{
+    socket.on('typing', function(data){
       socket.broadcast.emit('typing', data)
+      console.log('working')
     })
   })
 });
