@@ -12,11 +12,11 @@ module.exports = function(app) {
   });
   // Login Page
   app.get("/users/login", function (req, res) {
-    res.send("Login")
+    res.render("login")
   });
   // Register Page
   app.get("/users/register", function (req, res) {
-    res.send("Register")
+    res.render("register")
   });
   // Load Litty page and pass in an Litty by id
   app.get("/litty/:id", function(req, res) {
