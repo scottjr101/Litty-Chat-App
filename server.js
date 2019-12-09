@@ -52,7 +52,7 @@ let server = app.listen(PORT, function() {
     
     socket.on('chat', function(data){
       io.sockets.emit('chat', data);
-      console.log('chat data' + data)
+      console.log('chat data: ' + data.message)
     });
 
     socket.on('typing', function(data){
