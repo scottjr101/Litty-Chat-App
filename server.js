@@ -35,18 +35,19 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
+
   let server = app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
       PORT
     );
-  });
+  
 
   //socket connection established
   let io = socket(server);
   io.on('connection', (socket) =>{
+    db.sequelize.sync(syncOptions).then(function() {
     console.log('made socket connection', socket.id);
     
     socket.on('chat', function(data){
@@ -59,6 +60,7 @@ db.sequelize.sync(syncOptions).then(function() {
       console.log('working')
     })
   })
+});
 });
 
 module.exports = app;
