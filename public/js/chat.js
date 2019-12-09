@@ -20,13 +20,13 @@ $btn.on('click', function(){
         handle: handle.value
     });
     console.log('this'+message.value)
-    // message.value = "";
+    message.value = "";
 });
 
-// message.on('keypress', function(){
-//     socket.emit('typing', handle.value);
-//     console.log('searching') 
-// })
+message.addEventListener('keypress', function(){
+    socket.emit('typing', handle.value);
+    console.log('searching') 
+})
 
 // Listen for events
 socket.on('chat', function(data){
@@ -35,8 +35,8 @@ socket.on('chat', function(data){
     console.log('chat function works')
 });
 
-// socket.on('typing', function(data){
-//     feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
-//     console.log('typing function works' + data)
-// });
+socket.on('typing', function(data){
+    feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
+    console.log('typing function works' + data)
+});
 
