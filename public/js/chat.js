@@ -6,38 +6,37 @@ let alert = ()=>{
 }
 alert();
 
-let iomessage = $('#message')
-let iohandle = $('#handle');
-let $iobtn = $('#sendIt');
-let iooutput = $('#output');
-let feedback = $('#feedback');
+let message = document.getElementById('message')
+let handle = document.getElementById('handle');
+let $btn = $('#sendIt');
+let output = document.getElementById('output');
+let feedback = document.getElementById('feedback');
 // Emit events
 
-let emitChat = ()=>{
+$btn.on('click', function(){
     console.log('click')
     socket.emit('chat', {
-        message: iomessage.value,
-        handle: iohandle.value
+        message: message.value,
+        handle: handle.value
     });
-    iomessage.value = "";
-}
-$iobtn.on('click', emitChat);
-$('#send').on('click', alert);
+    console.log('this'+message.value)
+    // message.value = "";
+});
 
-iomessage.on('keypress', function(){
-    socket.emit('typing', iohandle.value);
-    console.log('searching')
-})
+// message.on('keypress', function(){
+//     socket.emit('typing', handle.value);
+//     console.log('searching') 
+// })
 
 // Listen for events
 socket.on('chat', function(data){
     feedback.innerHTML = '';
-    iooutput.innerHTML += '<p><strong>' + data.iohandle + ': </strong>' + data.iomessage + '</p>';
+    output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
     console.log('chat function works')
 });
 
-socket.on('typing', function(data){
-    feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
-    console.log('typing function works')
-});
+// socket.on('typing', function(data){
+//     feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
+//     console.log('typing function works' + data)
+// });
 

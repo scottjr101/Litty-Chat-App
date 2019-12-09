@@ -36,12 +36,12 @@ if (process.env.NODE_ENV === "test") {
 
 // Starting the server, syncing our models ------------------------------------/
 
-  let server = app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
+let server = app.listen(PORT, function() {
+  console.log(
+    "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+    PORT,
+    PORT
+  );
   
 
   //socket connection established
@@ -52,12 +52,15 @@ if (process.env.NODE_ENV === "test") {
     
     socket.on('chat', function(data){
       io.sockets.emit('chat', data);
-      console.log('chat working')
+      console.log('chat data' + data)
     });
 
     socket.on('typing', function(data){
       socket.broadcast.emit('typing', data)
       console.log('working')
+    })
+    socket.on('chat', function(){
+    
     })
   })
 });
