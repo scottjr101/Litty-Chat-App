@@ -1,4 +1,5 @@
 var db = require("../models");
+var User = require("../models/index");
 
 module.exports = function(app) {
   // Load index page
@@ -17,6 +18,50 @@ module.exports = function(app) {
   // Register Page
   app.get("/users/register", function (req, res) {
     res.render("register")
+  });
+  // Register Handle
+  app.post("/users/register", function (req, res) {
+    var { name, email, password, password2 } = req.body;
+    var errors = [];
+
+    // Check reqired fields
+    if(!name || !email || !password || !password2) {
+      errors.push({ msg:"please fill in all fields" });
+    }
+
+    // Check passwords match
+    if(password !== password2) {
+      errors.push({ msg:"Passwords do not match" })
+    }
+    
+    if(errors.length > 0) {
+      res.render("register", {
+        errors,
+        name,
+        email,
+        password,
+        password2
+      });
+    } else {
+      // Validation Passed
+      User.findOne({ email: email })
+        .then(user, function() {
+          if(user) {
+           //User Exists
+           errors.push({ msg: "Email already registered" })
+           res.render("register", {
+            errors,
+            name,
+            email,
+            password,
+            password2
+          });
+          } else {
+            
+          }
+        });
+    }
+
   });
   // Load Litty page and pass in an Litty by id
   app.get("/litty/:id", function(req, res) {
