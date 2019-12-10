@@ -57,11 +57,13 @@ db.sequelize.sync(syncOptions).then(function() {
 
     socket.on('typing', function(data){
       socket.broadcast.emit('typing', data)
-      console.log('working')
+      // console.log('working')
     })
-    socket.on('chat', function(){
-    
-    })
+    socket.on('user image', function (msg) {
+      //Received an image: broadcast to all
+      socket.broadcast.emit('user image', socket.nickname, msg);
+  });
+
   })
 });
 

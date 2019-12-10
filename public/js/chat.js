@@ -22,6 +22,24 @@ $btn.on('click', function(){
     console.log('this'+message.value)
     message.value = "";
 });
+message.addEventListener('keypress',function (e) {
+    if (e.which == 13) {
+        socket.emit('chat', {
+            message: message.value,
+            handle: handle.value
+        });
+        console.log('this'+message.value)
+        message.value = "";
+      return false;    //<---- Add this line
+    }
+  });
+
+socket.on('user image', image);
+
+function image (from, base64Image) {
+    $('#output').append($('<p>').append($('<b>').text(from),
+        `<img src="${base64Image}"/>`));
+}
 
 message.addEventListener('keypress', function(){
     socket.emit('typing', handle.value);
