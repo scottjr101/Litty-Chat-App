@@ -31,6 +31,7 @@ $(document).ready(function () {
                     image.attr("src", results[i].images.fixed_height_still.url);
                     image.attr("data-still", results[i].images.fixed_height_still.url);
                     image.attr("data-animate", results[i].images.fixed_height.url)
+                    // image.attr("data-ebd", results[i].images.fixed_height_still.url);
                     image.attr("data-state", "still")
                     image.addClass("gif");
                     topicDiv.append(image);
@@ -41,19 +42,24 @@ $(document).ready(function () {
     }
 
    
-    // This function handles events where a topic button is clicked
+    
     $("#search").on("click", function (event) {
         event.preventDefault();     
+        $(document).on("click", "#search", displaytopicInfo);
     });
 
-    // Adding a click event listener to all elements with a class of "topic-btn"
-    $(document).on("click", "#search", displaytopicInfo);
+    
     
 
     // Adding play/ pause
     $("#topics-view").on("click", ".gif", function (event) {
         event.preventDefault();
         console.log("been clicked")
+        console.log($(this))
+        console.log("me", this)
+
+    // $("#message").append(this)
+
 
         var state = $(this).attr("data-state");
 
@@ -66,6 +72,8 @@ $(document).ready(function () {
         }
 
     })
+
+    
 
 
 });
