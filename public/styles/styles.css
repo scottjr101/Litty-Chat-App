@@ -4,12 +4,17 @@
 
 body{
   font-family: 'Nunito';
+  background-color: #4d80e4;
 }
 
 h2{
   font-size: 18px;
   padding: 10px 20px;
   color: #575ed8;
+}
+
+.navbar {
+  background-color: #2e279d;
 }
 
 #mario-chat{
