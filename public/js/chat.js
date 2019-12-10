@@ -46,3 +46,10 @@ function image (from, base64Image) {
         '<img src="' + base64Image + '"/>'));
 }
 
+// socket.on("image", function(info) {
+//     if (info.image) {
+//       var img = new Image();
+//       img.src = 'data:image/jpeg;base64,' + image.buffer;
+//       ctx.drawImage(img, 0, 0);
+//     }
+//   });
