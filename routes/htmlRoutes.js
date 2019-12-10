@@ -46,13 +46,13 @@ module.exports = function(app) {
             
             newUser.save()
               .then(function(user) {
-                res.redirect("/users/login");
+                res.render('register', { msg: "You have been registered and can now log in. Lit fam." });
               })
               .catch(function(err) {
                 console.log(err);
               });
 
-            console.log(newUser)
+            console.log("New user was created", + newUser.name)
             // res.send("hello");
           }
         });
