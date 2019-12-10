@@ -3,7 +3,7 @@ var express = require("express");
 let socket = require('socket.io')
 var exphbs = require("express-handlebars");
 
-var db = require("./models");
+var sequelize = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
