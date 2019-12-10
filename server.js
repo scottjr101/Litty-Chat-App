@@ -47,16 +47,23 @@ db.sequelize.sync(syncOptions).then(function() {
   //socket connection established
   let io = socket(server);
   io.on('connection', (socket) =>{
+    // db.sequelize.sync(syncOptions).then(function() {
     console.log('made socket connection', socket.id);
     
-    socket.on('chat', (data)=>{
+    socket.on('chat', function(data){
       io.sockets.emit('chat', data);
+      console.log('chat data: ' + data.message)
     });
 
-    socket.on('typing', (data)=>{
+    socket.on('typing', function(data){
       socket.broadcast.emit('typing', data)
+      console.log('working')
+    })
+    socket.on('chat', function(){
+    
     })
   })
+});
 });
 
 module.exports = app;
