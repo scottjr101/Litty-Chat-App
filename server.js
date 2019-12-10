@@ -1,6 +1,6 @@
 require("dotenv").config();
 var express = require("express");
-let socket = require('socket.io')
+var socket = require('socket.io')
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
@@ -47,14 +47,20 @@ db.sequelize.sync(syncOptions).then(function() {
   //socket connection established
   let io = socket(server);
   io.on('connection', (socket) =>{
+    // db.sequelize.sync(syncOptions).then(function() {
     console.log('made socket connection', socket.id);
     
-    socket.on('chat', (data)=>{
+    socket.on('chat', function(data){
       io.sockets.emit('chat', data);
+      console.log('chat data: ' + data.message)
     });
 
-    socket.on('typing', (data)=>{
+    socket.on('typing', function(data){
       socket.broadcast.emit('typing', data)
+      console.log('working')
+    })
+    socket.on('chat', function(){
+    
     })
   })
 });

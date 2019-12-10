@@ -40,3 +40,40 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+// console.log(db.Litty)
+
+// var Litty = sequelize.define('Litty', {
+//   // attributes
+//   Name: {
+//     type: Sequelize.STRING,
+//     allowNull: false
+//   },
+//   Message: {
+//     type: Sequelize.STRING,
+//     allowNull: false
+//   }
+// }, {
+//   // options
+// });
+
+// var User = sequelize.define('users', {
+//   // attributes
+//   Name: {
+//     type: Sequelize.STRING,
+//     allowNull: false
+//   },
+//   Email: {
+//     type: Sequelize.STRING,
+//     allowNull: false
+//   },
+//   Password: {
+//     type: Sequelize.STRING,
+//     allowNull: false
+//   }
+// }, {
+//   // options
+// });
+
+// module.exports = sequelize;
+// module.exports = Litty;
+// module.exports = User;
