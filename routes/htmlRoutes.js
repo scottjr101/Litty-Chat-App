@@ -21,50 +21,39 @@ module.exports = function(app) {
   // Register Handle
   app.post("/users/register", function (req, res) {
     var { name, email, password, password2 } = req.body;
-    var errors = [];
-
-    // Check reqired fields
-    if(!name || !email || !password || !password2) {
-      // errors.push({ msg:"please fill in all fields" });
-    }
-
+    
     // Check passwords match
     if(password !== password2) {
-      // errors.push({ msg:"Passwords do not match" })
+      res.render("register", {msg:"** Passwords do not match **"});
     }
     
-    if(errors.length > 0) {
-      res.render("register", {
-        errors,
-        name,
-        email,
-        password,
-        password2
-      });
-    } else {
+     else {
       // Validation Passed
-      User.findOne({ email: email })
-        .then(user => {
+      db.Users.findOne({ where: { email: email }})
+        .then(function(user) {
           if(user) {
            //User Exists
           //  errors.push({ msg: "Email already registered" })
-          window.alert("Email already registered");
-           res.render("register", {
-            errors,
-            name,
-            email,
-            password,
-            password2
-          });
+           res.render("register",
+           {msg:"** Email already registered **"});
+
           } else {
-            var newUser = new User({
+            var newUser = new db.Users({
               name,
               email,
               password
             });
+            
+            newUser.save()
+              .then(function(user) {
+                res.redirect("/users/login");
+              })
+              .catch(function(err) {
+                console.log(err);
+              });
 
             console.log(newUser)
-            res.send("hello");
+            // res.send("hello");
           }
         });
     }
