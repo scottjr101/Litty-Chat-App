@@ -1,24 +1,25 @@
-var db = require("../models");
+var User = require("../models/index");
+var Litty = require("../models/index");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  app.get("/api/Littys", function(req, res) {
+    Litty.findAll({}).then(function(dbLittys) {
+      res.json(dbLittys);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Create a new Litty
+  app.post("/api/Littys", function(req, res) {
+    Litty.create(req.body).then(function(dbLitty) {
+      res.json(dbLitty);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  // Delete an Litty by id
+  app.delete("/api/Littys/:id", function(req, res) {
+    Litty.destroy({ where: { id: req.params.id } }).then(function(dbLitty) {
+      res.json(dbLitty);
     });
   });
 };
