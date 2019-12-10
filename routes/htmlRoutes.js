@@ -2,7 +2,7 @@ var db = require("../models/index");
 
 module.exports = function(app) {
   // Load index page
-  app.get("/", function(req, res) {NOW()
+  app.get("/", function(req, res) {
     db.Litty.findAll({}).then(function(dbLittys) {
       res.render("index", {
         msg: "Welcome!",
@@ -42,7 +42,7 @@ module.exports = function(app) {
         password2
       });
     } else {
-      Validation Passed
+      // Validation Passed
       User.findOne({ email: email })
         .then(user => {
           if(user) {
