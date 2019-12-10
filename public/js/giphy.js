@@ -30,12 +30,11 @@ $(document).ready(function () {
                 if (results[i].rating !== "r") {
 
 
-                    var image = $('<img height="100" width="100">')
+                    var image = $('<img height="100" width="100">');
                     image.attr("src", results[i].images.fixed_height_still.url);
                     image.attr("data-still", results[i].images.fixed_height_still.url);
-                    image.attr("data-animate", results[i].images.fixed_height.url)
-                    // image.attr("data-ebd", results[i].images.fixed_height_still.url);
-                    image.attr("data-state", "still")
+                    image.attr("data-animate", results[i].images.fixed_height.url);
+                    image.attr("data-state", "still");
                     image.addClass("gif");
                     topicDiv.append(image);
                     $("#topics-view").prepend(topicDiv);
@@ -54,7 +53,7 @@ $(document).ready(function () {
 
 
 
-    // Adding play/ pause
+    // Adding play/ pause and other coolness
     $("#topics-view").on("click", ".gif", function (event) {
         event.preventDefault();
         console.log("been clicked")
@@ -65,15 +64,15 @@ $(document).ready(function () {
         var animatePic = this.attributes[4].nodeValue
 
         // $(message).val('<img src="' + animatePic + '">')
+ 
+        //addes embeded url to message
         $(message).val(`
         <img src = "${animatePic}">
         `)
-        //   $(message).val('<img src="' + this.src + '">')
-        // $(message).val(this.outerHTML)
-        
 
-
-
+        //adds border to selected gif
+        $('.gif').removeClass('active');
+        $(this).addClass('active');
 
 
 
@@ -88,20 +87,5 @@ $(document).ready(function () {
         }
 
     })
-
-//     $("#topics-view").hover(".gif",function () {
-       
-//     var state = $(this).attr("data-state");
-
-//     if (state === "still") {
-//         $(this).attr("src", $(this).attr("data-animate"));
-//         $(this).attr("data-state", "animate");
-//     } else {
-//         $(this).attr("src", $(this).attr("data-still"));
-//         $(this).attr("data-state", "still");
-//     }
-
-// })
-
 
 });

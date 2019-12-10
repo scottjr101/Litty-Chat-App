@@ -75,3 +75,7 @@ button{
 #search-bar{
   border:solid #555;
 }
+
+img.active{
+  border:4px solid black;
+}
