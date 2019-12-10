@@ -1,8 +1,10 @@
 require("dotenv").config();
 var express = require("express");
-var socket = require('socket.io')
+var socket = require('socket.io');
 var exphbs = require("express-handlebars");
 var path = require("path");
+var passport = require('passport');
+
 
 var db = require("./models");
 
@@ -27,6 +29,10 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
@@ -41,7 +47,7 @@ if (process.env.NODE_ENV === "test") {
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
-  let server = app.listen(PORT, function() {
+  var server = app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
@@ -50,7 +56,7 @@ db.sequelize.sync(syncOptions).then(function() {
   });
 
   //socket connection established
-  let io = socket(server);
+  var io = socket(server);
   io.on('connection', (socket) =>{
     // db.sequelize.sync(syncOptions).then(function() {
     console.log('made socket connection', socket.id);
