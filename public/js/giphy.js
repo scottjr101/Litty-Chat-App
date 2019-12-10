@@ -6,7 +6,7 @@ $(document).ready(function () {
 
 
 
-    
+
 
     function displaytopicInfo() {
 
@@ -29,7 +29,7 @@ $(document).ready(function () {
 
                 if (results[i].rating !== "r") {
 
-                
+
                     var image = $('<img height="100" width="100">')
                     image.attr("src", results[i].images.fixed_height_still.url);
                     image.attr("data-still", results[i].images.fixed_height_still.url);
@@ -44,30 +44,33 @@ $(document).ready(function () {
         });
     }
 
-   
-    
+
+
     $("#search").on("click", function (event) {
-        event.preventDefault();     
+        event.preventDefault();
         $(document).on("click", "#search", displaytopicInfo);
     });
 
-    
-    
+
+
 
     // Adding play/ pause
     $("#topics-view").on("click", ".gif", function (event) {
         event.preventDefault();
         console.log("been clicked")
         console.log($(this))
-        console.log("me", this.src)
-        
+        // console.log("me", this.outerHTML)
+        // console.log(this.attributes[4].nodeValue)
 
-  $(message).val('<img src="' + this.src + '">')
-// socket.emit('message', "this is a test");
-// socket.emit(message, "hey")
+        var animatePic = this.attributes[4].nodeValue
 
-    
-  
+        $(message).val('<img src="' + animatePic + '">')
+        //   $(message).val('<img src="' + this.src + '">')
+        // $(message).val(this.outerHTML)
+
+
+
+
 
 
         var state = $(this).attr("data-state");
@@ -82,7 +85,7 @@ $(document).ready(function () {
 
     })
 
-    
+
 
 
 });
