@@ -1,9 +1,8 @@
-var db = require("../models");
-var User = require("../models/index");
+var db = require("../models/index");
 
 module.exports = function(app) {
   // Load index page
-  app.get("/", function(req, res) {
+  app.get("/", function(req, res) {NOW()
     db.Litty.findAll({}).then(function(dbLittys) {
       res.render("index", {
         msg: "Welcome!",
@@ -26,12 +25,12 @@ module.exports = function(app) {
 
     // Check reqired fields
     if(!name || !email || !password || !password2) {
-      errors.push({ msg:"please fill in all fields" });
+      // errors.push({ msg:"please fill in all fields" });
     }
 
     // Check passwords match
     if(password !== password2) {
-      errors.push({ msg:"Passwords do not match" })
+      // errors.push({ msg:"Passwords do not match" })
     }
     
     if(errors.length > 0) {
@@ -43,12 +42,13 @@ module.exports = function(app) {
         password2
       });
     } else {
-      // Validation Passed
+      Validation Passed
       User.findOne({ email: email })
-        .then(user, function() {
+        .then(user => {
           if(user) {
            //User Exists
-           errors.push({ msg: "Email already registered" })
+          //  errors.push({ msg: "Email already registered" })
+          window.alert("Email already registered");
            res.render("register", {
             errors,
             name,
@@ -57,7 +57,14 @@ module.exports = function(app) {
             password2
           });
           } else {
-            
+            var newUser = new User({
+              name,
+              email,
+              password
+            });
+
+            console.log(newUser)
+            res.send("hello");
           }
         });
     }
