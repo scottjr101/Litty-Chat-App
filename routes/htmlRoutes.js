@@ -72,7 +72,7 @@ module.exports = function(app) {
   });
   // Load Litty page and pass in an Litty by id
   app.get("/litty/:id", function(req, res) {
-    Litty.findOne({ where: { id: req.params.id } }).then(function(dbLitty) {
+    db.Litty.findOne({ where: { id: req.params.id } }).then(function(dbLitty) {
       res.render("Litty", {
         litty: dbLitty
       });
