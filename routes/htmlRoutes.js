@@ -1,10 +1,11 @@
-var db = require("../models");
+// var db = require("../models");
 var User = require("../models/index");
+var Litty = require("../models/index");
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Litty.findAll({}).then(function(dbLittys) {
+    Litty.findAll({}).then(function(dbLittys) {
       res.render("index", {
         msg: "Welcome!",
         litty: dbLittys
@@ -65,7 +66,7 @@ module.exports = function(app) {
   });
   // Load Litty page and pass in an Litty by id
   app.get("/litty/:id", function(req, res) {
-    db.Litty.findOne({ where: { id: req.params.id } }).then(function(dbLitty) {
+    Litty.findOne({ where: { id: req.params.id } }).then(function(dbLitty) {
       res.render("Litty", {
         litty: dbLitty
       });
