@@ -1,5 +1,8 @@
 $(document).ready(function () {
     console.log("ready!");
+    let message = document.getElementById('message')
+    let output = document.getElementById('output');
+    let feedback = document.getElementById('feedback');
 
 
 
@@ -56,9 +59,15 @@ $(document).ready(function () {
         event.preventDefault();
         console.log("been clicked")
         console.log($(this))
-        console.log("me", this)
+        console.log("me", this.src)
+        
 
-    // $("#message").append(this)
+  $(message).val('<img src="' + this.src + '">')
+// socket.emit('message', "this is a test");
+// socket.emit(message, "hey")
+
+    
+  
 
 
         var state = $(this).attr("data-state");
