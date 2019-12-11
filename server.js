@@ -10,9 +10,6 @@ var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
 
-// Passport Config
-require('./config/passport')(passport);
-
 // Handlebars
 app.engine(
   "handlebars",
@@ -55,6 +52,12 @@ var syncOptions = { force: false };
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
+
+//Models
+var db = require("./models/index");
+
+// Passport Config
+require('./config/passport')(passport, db.Users);
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
