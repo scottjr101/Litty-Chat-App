@@ -5,26 +5,28 @@
         <h1 class="card-title"><i class="medium material-icons">account_box</i> <br> Login</h1>
         {{!-- inputs here --}}
         <div class="row">
+          <form action="/users/login" method="POST">
           <div class="input-field hoverable">
             <input placeholder="Enter your email address" id="email" type="email" class="validate center">
-            {{!-- <label for="email">
-              <h5>Email:</h5>
-            </label> --}}
+            <label for="email">
+              <p>Email:</p>
+            </label>
           </div>
         </div>
         <div class="row">
           <div class="input-field hoverable">
             <input placeholder="Enter your password" id="password" type="password" class="validate center">
-            {{!-- <label for="password">
-              <h5>Password:</h5>
-            </label> --}}
+            <label for="password">
+              <p>Password:</p>
+            </label>
           </div>
         </div>
       </div>
       <br>
       <div class="card-action">
         {{!-- submit button here --}}
-        <a type="submit" class="waves-effect waves-light btn-large">LOGIN</a>
+        <button type="submit" class="waves-effect waves-light btn-large">LOGIN</button>
+        </form>
         <br>
         <br>
         <p>Don't have an account? <a href="/users/register">Register Here!</a></p>
