@@ -1,7 +1,5 @@
-var db = require("../models/index");
-var passport = require('passport');
 
-module.exports = function(app) {
+module.exports = function(app, passport, db) {
   // Load index page
   app.get("/", function(req, res) {
     db.Litty.findAll({}).then(function(dbLittys) {
@@ -60,20 +58,12 @@ module.exports = function(app) {
 
   });
 
-  // Login Handle
-  // app.post("/users/login", function(req, res, next) {
-  //   passport.authenticate('local', function(err, user, info) {
-  //     if (err) { return next(err); }
-  //     if (!user) { return res.redirect("/users/login"); }
-  //     else { return res.redirect('/users/' + newUser.email); }
-  //   })(req, res, next);
-  // });
-  app.post('/users/login', function(req, res, next) {
+  app.post('/users/login',
     passport.authenticate('local', {
       successRedirect: '/',
       failureRedirect: '/users/login'
-    })(req, res, next);
-  });
+    })
+  );
 
   // Load Litty page and pass in an Litty by id
   app.get("/litty/:id", function(req, res) {
