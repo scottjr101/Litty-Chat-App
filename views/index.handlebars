@@ -1,4 +1,3 @@
-
 <div id="home">
 
   <div class="container mt-4">
@@ -34,7 +33,41 @@
             <input id="handle" type="text" placeholder="Handle" />
             <input id="message" type="text" placeholder="Message" />
             <button id="sendIt">Send</button>
+          
         </div>
+
+
+        {{!-- Gify shit --}}
+
+        <div class="col-12">
+          <form id="topic-form">
+            <label id="topic-text" for="topic-input">&darr;SEARCH GIFS&darr;</label>
+            <input type="text" id="search-bar">
+            <br>
+
+            {{!-- <input id="search" type="submit" value="SEARCH!"> --}}
+            <button id="search"> Search! </button>
+          </form>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-12">
+            <div id="topics-view"></div>
+          </div>
+        </div>
+
+        {{!-- //emojis --}}
+        <div class="row">
+          <div class="col-12">
+            <div id="emojiSpot"> </div>
+          </div>
+        </div>
+
+        
+
+
+
         <h3>Examples:</h3>
         <ul id="example-list" class="list-group">
           {{#each litty}}
@@ -48,4 +81,3 @@
     </div>
   </div>
 </div>
-

@@ -58,3 +58,16 @@ socket.on('typing', function(data){
     console.log('typing function works' + data)
 });
 
+socket.on('user image', image);
+function image (from, base64Image) {
+    $('#output').append($('<p>').append($('<b>').text(from),
+        '<img src="' + base64Image + '"/>'));
+}
+
+// socket.on("image", function(info) {
+//     if (info.image) {
+//       var img = new Image();
+//       img.src = 'data:image/jpeg;base64,' + image.buffer;
+//       ctx.drawImage(img, 0, 0);
+//     }
+//   });

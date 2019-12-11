@@ -56,15 +56,18 @@ db.sequelize.sync(syncOptions).then(function() {
       console.log('chat data: ' + data.message)
     });
 
+    
+
     socket.on('typing', function(data){
       socket.broadcast.emit('typing', data)
-      // console.log('working')
+      console.log('working')
     })
+
     socket.on('user image', function (msg) {
       //Received an image: broadcast to all
       socket.broadcast.emit('user image', socket.nickname, msg);
   });
-
+  
   })
 });
 
