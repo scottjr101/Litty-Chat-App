@@ -11,9 +11,9 @@ module.exports = function(passport, user) {
         if (!user) {
           return done(null, false, { message: "That email is not registered" });
         }
-        // if (!user.validPassword(password)) {
-        //   return done(null, false, { message: "Incorrect password." });
-        // }
+        if (user.password != password) 
+        { return done(null, false, { message: "That password is invaild" }); }
+
         return done(null, user);
       })
     })
