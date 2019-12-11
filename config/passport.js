@@ -9,10 +9,10 @@ module.exports = function(passport, user) {
     new LocalStrategy({ usernameField: 'email', passwordField: 'password' }, function (email, password, done) {
       User.findOne({ where: { email: email }}).then(function (user) {
         if (!user) {
-          return done(null, false, { message: "That email is not registered" });
+          return done(null, false, { messages: "That email is not registered" });
         }
         if (user.password != password) 
-        { return done(null, false, { message: "That password is invaild" }); }
+        { return done(null, false, { messages: "That password is invaild" }); }
 
         return done(null, user);
       })
