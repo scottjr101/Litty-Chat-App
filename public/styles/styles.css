@@ -80,3 +80,6 @@ img.active{
   border:4px solid black;
 }
 
+.emojiButton{
+  cursor: pointer;
+}
