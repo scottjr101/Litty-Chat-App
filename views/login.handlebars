@@ -1,24 +1,25 @@
 <div class="row valign-wrapper">
 
-  <div class="col s6 valign" id="login-displ">
+  <div class="col s6 offset-s3 valign" id="login-displ">
+    
     <div class="card hoverable blue-grey darken-1 center">
-      <div class="card-content s6 white-text">
+      <div class="card-content white-text">
         <span class="card-title"><i class="medium material-icons">account_box</i> <br> Login</span>
         {{!-- inputs here --}}
         <div class="row">
-          <div class="input-field col hoverable">
-            <input placeholder="yourEmail@email.com" id="email" type="email" class="validate center">
-            <label for="email">
+          <div class="input-field hoverable">
+            <input placeholder="Enter your email address" id="email" type="email" class="validate center">
+            {{!-- <label for="email">
               <h5>Email:</h5>
-            </label>
+            </label> --}}
           </div>
         </div>
         <div class="row">
-          <div class="input-field col hoverable">
-            <input placeholder="**********" id="password" type="password" class="validate center">
-            <label for="password">
+          <div class="input-field hoverable">
+            <input placeholder="Enter your password" id="password" type="password" class="validate center">
+            {{!-- <label for="password">
               <h5>Password:</h5>
-            </label>
+            </label> --}}
           </div>
         </div>
       </div>
@@ -31,6 +32,8 @@
         <p>Don't have an account? <a href="/users/register">Register Here!</a></p>
       </div>
     </div>
+
+
   </div>
 </div>
 
