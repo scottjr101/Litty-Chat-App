@@ -6,7 +6,8 @@ var path = require("path");
 var passport = require('passport');
 var session = require('express-session');
 var app = express();
-var db = require("./models");
+//Models
+var db = require("./models/index");
 
 var PORT = process.env.PORT || 3000;
 
@@ -43,7 +44,7 @@ app.use(passport.session());
 
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/htmlRoutes")(app, passport, db);
 
 var syncOptions = { force: false };
 
@@ -52,9 +53,6 @@ var syncOptions = { force: false };
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
-
-//Models
-var db = require("./models/index");
 
 // Passport Config
 require('./config/passport')(passport, db.Users);
