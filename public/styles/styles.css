@@ -29,6 +29,7 @@ h2{
   height: 200px;
   overflow: auto;
   background: #f9f9f9;
+  margin-bottom: 3%;
 }
 
 #output p{
