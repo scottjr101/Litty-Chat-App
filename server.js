@@ -6,6 +6,7 @@ var path = require("path");
 var passport = require('passport');
 var session = require('express-session');
 var app = express();
+var flash = require('connect-flash');
 //Models
 var db = require("./models/index");
 
@@ -37,6 +38,9 @@ app.use(
     saveUninitialized: true
   })
 );
+
+// connect-flash
+app.use(flash());
 
 // Passport middleware
 app.use(passport.initialize());
