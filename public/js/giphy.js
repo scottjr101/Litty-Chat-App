@@ -1,11 +1,5 @@
 $(document).ready(function () {
     console.log("ready!");
-    let message = document.getElementById('message')
-    let output = document.getElementById('output');
-    let feedback = document.getElementById('feedback');
-
-
-
 
 
     function displaytopicInfo() {
