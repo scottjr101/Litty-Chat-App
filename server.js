@@ -4,20 +4,14 @@ var socket = require('socket.io');
 var exphbs = require("express-handlebars");
 var path = require("path");
 var passport = require('passport');
-
-
+var session = require('express-session');
+var app = express();
 var db = require("./models");
 
-var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Passport Config
 require('./config/passport')(passport);
-
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
 
 // Handlebars
 app.engine(
@@ -31,6 +25,20 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+
+// Middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.static("public"));
+
+// Express session
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
 
 // Passport middleware
 app.use(passport.initialize());

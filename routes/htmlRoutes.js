@@ -1,4 +1,5 @@
 var db = require("../models/index");
+var passport = require('passport');
 
 module.exports = function(app) {
   // Load index page
@@ -33,7 +34,6 @@ module.exports = function(app) {
         .then(function(user) {
           if(user) {
            //User Exists
-          //  errors.push({ msg: "Email already registered" })
            res.render("register",
            {msg:"** Email already registered **"});
 
@@ -59,6 +59,22 @@ module.exports = function(app) {
     }
 
   });
+
+  // Login Handle
+  // app.post("/users/login", function(req, res, next) {
+  //   passport.authenticate('local', function(err, user, info) {
+  //     if (err) { return next(err); }
+  //     if (!user) { return res.redirect("/users/login"); }
+  //     else { return res.redirect('/users/' + newUser.email); }
+  //   })(req, res, next);
+  // });
+  app.post('/users/login', function(req, res, next) {
+    passport.authenticate('local', {
+      successRedirect: '/',
+      failureRedirect: '/users/login'
+    })(req, res, next);
+  });
+
   // Load Litty page and pass in an Litty by id
   app.get("/litty/:id", function(req, res) {
     Litty.findOne({ where: { id: req.params.id } }).then(function(dbLitty) {
