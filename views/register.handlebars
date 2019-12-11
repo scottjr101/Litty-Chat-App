@@ -8,28 +8,29 @@
         {{!-- name form --}}
           <div class="input-field hoverable">
             {{!-- when changing <input type="name"> bug on input field appears overiding materialize css, fized by type="text" check with scott for conflicts --}}
-            <input placeholder="Enter Name" id="name" type="text" class="validate center">
+            <input placeholder="Enter Name" id="name" name="name" required type="text" class="validate center">
             <label for="name">
-              <p>Name:</p>
+              <p>Name:</p><br>
             </label>
           </div>
         {{!-- email form --}}
           <div class="input-field hoverable">
-            <input placeholder="Enter your email address" id="email" type="email" class="validate center">
+            <input placeholder="Enter your email address" id="email" name="email" required type="email" class="validate center">
             <label for="email">
               <p>Email:</p>
             </label>
           </div>
         {{!-- password form --}}
           <div class="input-field hoverable">
-            <input placeholder="Create Password" id="password" type="text" class="validate center">
+            <input placeholder="Create Password" id="password" name="password" required type="password" class="validate center">
             <label for="password">
               <p>Password:</p>
             </label>
           </div>
         {{!-- confirm password form --}}
           <div class="input-field hoverable">
-            <input placeholder="Confirm Password" id="password2" type="text" class="validate center">
+            {{!-- type="" bug --}}
+            <input placeholder="Confirm Password" id="password2" name="password2" required type="password" class="validate center">
             <label for="password2">
               <p>Confirm Password:</p>
             </label>
