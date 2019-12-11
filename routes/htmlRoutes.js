@@ -11,7 +11,7 @@ module.exports = function(app, passport, db) {
   });
   // Login Page
   app.get("/users/login", function (req, res) {
-    res.render("login")
+    res.render("login", {msg: req.flash('error')})
   });
   // Register Page
   app.get("/users/register", function (req, res) {
@@ -62,13 +62,13 @@ module.exports = function(app, passport, db) {
     passport.authenticate('local', {
       successRedirect: '/',
       failureRedirect: '/users/login',
-      failureFlash: true
+      failureFlash: 'Invalid username or password.'
     })
   );
 
   // Load Litty page and pass in an Litty by id
   app.get("/litty/:id", function(req, res) {
-    Litty.findOne({ where: { id: req.params.id } }).then(function(dbLitty) {
+    db.Litty.findOne({ where: { id: req.params.id } }).then(function(dbLitty) {
       res.render("Litty", {
         litty: dbLitty
       });
