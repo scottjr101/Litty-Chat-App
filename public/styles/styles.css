@@ -1,6 +1,6 @@
-.list-group-item {
+/* .list-group-item {
   line-height: 2.5;
-}
+} */
 
 body{
   /* font-family: 'Nunito'; */
@@ -17,18 +17,18 @@ body{
   background-color: #2e279d;
 }
 
-#mario-chat{
+/* #mario-chat{
   max-width: 100%;
   margin: 30px auto;
   border: 1px solid #ddd;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
   border-radius: 2px;
-}
+} */
 
 #chat-window{
-  height: 200px;
+  /* height: 100%; */
   overflow: auto;
-  background: #f9f9f9;
+  /* background: #f9f9f9; */
 }
 
 #output p{
