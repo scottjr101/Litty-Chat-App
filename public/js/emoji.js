@@ -4,17 +4,14 @@ var allEmojis = ["😀", "😁", "😂", "😃", "😄", "😅", "😆", "😇",
 
 $("#emojiSpot").on("click", ".emojiButton", function (event) {
     event.preventDefault();
-    // $(message).val($(".emo"))
-    console.log(this.outerText)
+    // console.log(this.outerText)
     $(message).val(this.outerText)
 });
 
 for (var i = 0; i < allEmojis.length; i++) {
     var emoji = allEmojis[i]
-$("#emojiSpot").append(`
-<p class="emojiButton"> ${emoji}
-</p>
-`)
-        
+    $("#emojiSpot").append(`
+    <span class="emojiButton"> ${emoji} 
+    </span>
+    `)
 }
-
