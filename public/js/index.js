@@ -1,8 +1,8 @@
 // Get references to page elements
 // let $exampleText = $("#example-text");
-let $exampleText = $('#handle');
+let $littyName = $('#handle');
 // let $exampleDescription = $("#example-description");
-let $exampleDescription = $('#message')
+let $littyMessage = $('#message')
 // let $submitBtn = $("#submit");
 let $submitBtn = $('#sendIt');
 let $exampleList = $("#example-list");
@@ -80,8 +80,8 @@ let handleFormSubmit = function(event) {
   event.preventDefault();
 
   let litty = {
-    name: $exampleText.val().trim(),
-    message: $exampleDescription.val().trim()
+    name: $littyName.val().trim(),
+    message: $littyMessage.val().trim()
   };
 
   if (!(litty.name && litty.message)) {
@@ -96,26 +96,6 @@ let handleFormSubmit = function(event) {
   // $exampleText.val("");
   // $exampleDescription.val("");
 };
-// let handleFormSubmit = function(event) {
-//   event.preventDefault();
-
-//   let example = {
-//     text: $exampleText.val().trim(),
-//     description: $exampleDescription.val().trim()
-//   };
-
-//   if (!(example.text && example.description)) {
-//     alert("You must enter an example text and description!");
-//     return;
-//   }
-
-//   API.saveExample(example).then(function() {
-//     refreshExamples();
-//   });
-
-//   $exampleText.val("");
-//   $exampleDescription.val("");
-// };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
