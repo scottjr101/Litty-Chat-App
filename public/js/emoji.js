@@ -5,7 +5,7 @@ var allEmojis = ["😀", "😁", "😂", "😃", "😄", "😅", "😆", "😇",
 $("#emojiSpot").on("click", ".emojiButton", function (event) {
     event.preventDefault();
     // console.log(this.outerText)
-    $(message).val(this.outerText)
+    $(message).val($(message).val() + this.outerText)
 });
 
 for (var i = 0; i < allEmojis.length; i++) {
