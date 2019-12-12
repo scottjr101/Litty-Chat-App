@@ -97,14 +97,15 @@ input{
   border-radius: 0 0 2px 2px;
 }
 
-#search-bar{
+/* #search-bar{
   border:solid #555;
-}
+} */
 
 img.active{
   border:4px solid black;
+  border-radius: 10px;
 }
 
-.emojiButton{
+/* .emojiButton{
   cursor: pointer;
-}
+} */
