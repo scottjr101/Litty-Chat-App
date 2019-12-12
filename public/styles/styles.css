@@ -107,10 +107,14 @@ img.active{
   border-radius: 10px;
 }
 
+.emoji-body {
+  padding: 29px 0px 0px 0px;
+}
+
 .emoji-scroll {
   overflow-y: scroll;
   height: 150px;
-  padding: 1rem
+  padding: 1rem;
 }
 
 .giphy-scroll {
