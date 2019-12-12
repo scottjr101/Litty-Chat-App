@@ -2,6 +2,7 @@
 let socket = io.connect('http://localhost:3000/');
 
 let alert = ()=>{
+    $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
     console.log('chat connected')
 }
 alert();
@@ -42,9 +43,15 @@ function image (from, base64Image) {
 }
 
 message.on('keypress', function(){
-    socket.emit('typing', handle.value);
+    socket.emit('typing', handle.html());
     console.log('searching') 
 })
+// $(document).click(typing)
+// let typing = () =>{
+//     if (!message.val()){
+//         socket.emit('typing', handle.html());
+//     }
+// }
 
 // Listen for events
 socket.on('chat', function(data){
@@ -58,7 +65,7 @@ socket.on('chat', function(data){
 socket.on('typing', function(data){
     feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
     console.log('typing function works' + data)
-    $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
+    // $("#chat-window").animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
 });
 
 socket.on('user image', image);
