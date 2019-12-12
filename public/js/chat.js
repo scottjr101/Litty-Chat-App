@@ -49,13 +49,16 @@ message.addEventListener('keypress', function(){
 // Listen for events
 socket.on('chat', function(data){
     feedback.innerHTML = '';
-    output.innerHTML = '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>' + output.innerHTML;
+    output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
     console.log('chat function works')
+    // $('#chat-window, #feedback').animate({scrollTop: $('#feedback').height()}, "slow");
+    $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
 });
 
 socket.on('typing', function(data){
     feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
     console.log('typing function works' + data)
+    $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
 });
 
 socket.on('user image', image);
