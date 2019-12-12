@@ -1,10 +1,12 @@
 var { ensureAuthenticated } = require('../config/auth');
-const Sequlize = require('sequelize')
-const Op = Sequlize.Op
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 module.exports = function(app, passport, db) {
   // Load index page
-  app.get("/", function(req, res) {
+
+  const sequelize = db.sequelize
+  app.get('/chat', ensureAuthenticated, function(req, res) {
     db.Litty.findAll({ 
       where: {
          createdAt: {
@@ -13,17 +15,24 @@ module.exports = function(app, passport, db) {
          }
         },
          
-      // order: [
-      //   ['id', 'ASCN']
-      // ],
+      // order:  sequelize.literal('max(name) DESC')
+        // sequelize.fn('max', sequelize.col('id'), 'DESC') 
+      
       limit: 100
     }).then(function(dbLittys) {
+    // That took a minute to figure out  
+    // console.log(req.user[0].dataValues.email);
+    res.render('chatroom', { name: req.user[0].dataValues.name, litty: dbLittys })
+    });
+  })
+  app.get("/", function(req, res) {
+    
       res.render("index", {
-        msg: "Welcome!",
-        litty: dbLittys
+        // msg: "Welcome!",
+        
       });
     });
-  });
+  
   // app.get("/", function(req, res) {
   //   db.Litty.findAll({}).then(function(dbLittys) {
   //     res.render("index", {
@@ -98,11 +107,8 @@ module.exports = function(app, passport, db) {
   });
 
   // Dashboard
-  app.get('/chat', ensureAuthenticated, function(req, res) {
-  // That took a minute to figure out  
-  // console.log(req.user[0].dataValues.email);
-  res.render('chatroom', { name: req.user[0].dataValues.name })
-  });
+ 
+  
 
 
   // Load Litty page and pass in an Litty by id
