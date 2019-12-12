@@ -11,39 +11,68 @@
 
 <div class="row valign-wrapper">
   <div class="col s12 valign">
-    <div class="card blue-grey darken-1" id="big-window">
+    <div class="card blue-grey darken-1 hoverable" id="big-window">
       <div class="card-content white-text">
-        {{!-- make chat window scrollable and contained within card-content (currently overflows into card-action) --}}
-          <input id="handle" type="text" placeholder="Handle" />
+
+        {{!-- instead of handle form, pull user name --}}
+        <input id="handle" type="text" placeholder="Handle" />
+
         <div class="orange" id="chat-window">
-          {{!-- NTA color coding for output/feedback; round corners --}}
-          <div class="blue" id="output">
-              {{#each litty}}
-              {{!-- {{this.createdAt}} --}}
-              <p><strong>{{this.name}} :</strong> {{this.message}} </p>
-              {{/each}}</div>
+          {{!-- NTA color coding for output/feedback; round these corners!! --}}
+          <div class="blue" id="output"></div>
           <div class="green" id="feedback"></div>
+
+            {{#each litty}}
+            {{!-- {{this.createdAt}} --}}
+            <p><strong>{{this.name}} :</strong> {{this.message}} </p>
+            {{/each}}
+          
         </div>
         <div class="card-action">
           <input id="message" type="text" placeholder="Message" />
           <button class="waves-effect waves-light btn" id="sendIt">SEND IT</button>
-          <button class="waves-effect waves-light btn" id="sendIt2">GIFs</button>
-          <button class="waves-effect waves-light btn" id="sendIt3">EMOJIs</button>
         </div>
+        <ul class="collapsible">
+    
+    <li>
+      <div class="collapsible-header blue-grey darken-2 hoverable"><i class="material-icons">emoji_emotions</i>Emojis</div>
+      <div class="collapsible-body">
+        {{!-- scrollable emoji menu goes here --}}
+        <h5>emoji town</h5>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header blue-grey darken-2 hoverable"><i class="large material-icons">gif</i>Giphy</div>
+      <div class="collapsible-body">
+        {{!-- giphy search bar and results --}}
+        <form id="topic-form">
+          <label for="topic-input">&darr;SEARCH GIFS&darr;</label>
+          <input type="text" id="search-bar">
+          <button class="waves-effect waves-light btn" id="search">SEARCH!</button>
+        </form>
+        <div class="row">
+          <div class="col">
+            <div id="topics-view"></div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+
+
         {{!-- Gify shit --}}
 
-        <div class="col-12">
+        {{!-- <div class="col-12">
           <form id="topic-form">
             <label id="topic-text" for="topic-input">&darr;SEARCH GIFS&darr;</label>
             <input type="text" id="search-bar">
             <br>
-
             {{!-- <input id="search" type="submit" value="SEARCH!"> --}}
             <button id="search"> Search! </button>
           </form>
         </div>
         <br>
-
         <div class="row">
           <div class="col-12">
             <div id="topics-view"></div>
@@ -56,17 +85,12 @@
             <div id="emojiSpot"> </div>
           </div>
         </div>
+
+
       </div>
     </div>
   </div>
-</div>
-
-
-{{!-- </div>
-</div>
-</div>
 </div> --}}
-
 
 {{!-- trash --}}
 {{!-- <div class="row">
