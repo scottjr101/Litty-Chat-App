@@ -1,15 +1,37 @@
 var { ensureAuthenticated } = require('../config/auth');
+const Sequlize = require('sequelize')
+const Op = Sequlize.Op
 
 module.exports = function(app, passport, db) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Litty.findAll({}).then(function(dbLittys) {
+    db.Litty.findAll({ 
+      where: {
+         createdAt: {
+           [Op.lt]: new Date(),
+           [Op.gt]: new Date(new Date()- 24 * 60 * 60 * 1000)
+         }
+        },
+         
+      // order: [
+      //   ['id', 'ASCN']
+      // ],
+      limit: 100
+    }).then(function(dbLittys) {
       res.render("index", {
         msg: "Welcome!",
         litty: dbLittys
       });
     });
   });
+  // app.get("/", function(req, res) {
+  //   db.Litty.findAll({}).then(function(dbLittys) {
+  //     res.render("index", {
+  //       msg: "Welcome!",
+  //       litty: dbLittys
+  //     });
+  //   });
+  // });
   // Login Page
   app.get("/users/login", function (req, res) {
     res.render("login", {msg: req.flash('error')})

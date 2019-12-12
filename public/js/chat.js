@@ -6,8 +6,8 @@ let alert = ()=>{
 }
 alert();
 
-let message = document.getElementById('message')
-let handle = document.getElementById('handle');
+let message = $('#message')
+let handle = $('#handle');
 let $btn = $('#sendIt');
 let output = document.getElementById('output');
 let feedback = document.getElementById('feedback');
@@ -16,13 +16,13 @@ let feedback = document.getElementById('feedback');
 $btn.on('click', function(){
     console.log('click')
     socket.emit('chat', {
-        message: message.value,
-        handle: handle.value
+        message: message.val(),
+        handle: handle.html()
     });
     console.log('this'+message.value)
     message.value = "";
 });
-message.addEventListener('keypress',function (e) {
+message.on('keypress',function (e) {
     if (e.which == 13) {
         socket.emit('chat', {
             message: message.value,
@@ -41,7 +41,7 @@ function image (from, base64Image) {
         `<img src="${base64Image}"/>`));
 }
 
-message.addEventListener('keypress', function(){
+message.on('keypress', function(){
     socket.emit('typing', handle.value);
     console.log('searching') 
 })

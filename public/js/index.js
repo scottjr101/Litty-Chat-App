@@ -80,7 +80,7 @@ let handleFormSubmit = function(event) {
   event.preventDefault();
 
   let litty = {
-    name: $littyName.val().trim(),
+    name: $littyName.html().trim(),
     message: $littyMessage.val().trim()
   };
 
