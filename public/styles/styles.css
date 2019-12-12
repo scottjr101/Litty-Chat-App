@@ -5,6 +5,7 @@
 body{
   /* font-family: 'Nunito'; */
   background-color: #4d80e4;
+  
 }
 
 /* h2{
@@ -109,6 +110,12 @@ img.active{
 .emoji-scroll {
   overflow-y: scroll;
   height: 150px;
+  padding: 1rem
+}
+
+.giphy-scroll {
+  overflow-y: scroll;
+  max-height: 150px;
   padding: 1rem
 }
 
