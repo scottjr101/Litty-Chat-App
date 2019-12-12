@@ -1,9 +1,11 @@
 var { ensureAuthenticated } = require('../config/auth');
-const Sequlize = require('sequelize')
-const Op = Sequlize.Op
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 module.exports = function(app, passport, db) {
   // Load index page
+
+  const sequelize = db.sequelize
   app.get("/", function(req, res) {
     db.Litty.findAll({ 
       where: {
@@ -13,9 +15,9 @@ module.exports = function(app, passport, db) {
          }
         },
          
-      // order: [
-      //   ['id', 'ASCN']
-      // ],
+      // order:  sequelize.literal('max(name) DESC')
+        // sequelize.fn('max', sequelize.col('id'), 'DESC') 
+      
       limit: 100
     }).then(function(dbLittys) {
       res.render("index", {
