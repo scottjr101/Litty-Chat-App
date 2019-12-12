@@ -81,6 +81,10 @@ input{
   margin-top: 20%;
 }
 
+#big-window{
+  overflow: auto;
+}
+
 
 
 /* button{
