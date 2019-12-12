@@ -15,8 +15,13 @@ if (config.use_env_variable) {
     config.database,
     config.username,
     config.password,
-    config
-  );
+    config, {
+      pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+      }
+  });
 }
 
 fs.readdirSync(__dirname)
@@ -40,40 +45,3 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-// console.log(db.Litty)
-
-// var Litty = sequelize.define('Litty', {
-//   // attributes
-//   Name: {
-//     type: Sequelize.STRING,
-//     allowNull: false
-//   },
-//   Message: {
-//     type: Sequelize.STRING,
-//     allowNull: false
-//   }
-// }, {
-//   // options
-// });
-
-// var User = sequelize.define('users', {
-//   // attributes
-//   Name: {
-//     type: Sequelize.STRING,
-//     allowNull: false
-//   },
-//   Email: {
-//     type: Sequelize.STRING,
-//     allowNull: false
-//   },
-//   Password: {
-//     type: Sequelize.STRING,
-//     allowNull: false
-//   }
-// }, {
-//   // options
-// });
-
-// module.exports = sequelize;
-// module.exports = Litty;
-// module.exports = User;

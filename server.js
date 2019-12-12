@@ -4,20 +4,13 @@ var socket = require('socket.io');
 var exphbs = require("express-handlebars");
 var path = require("path");
 var passport = require('passport');
-
-
-var db = require("./models");
-
+var session = require('express-session');
 var app = express();
+var flash = require('connect-flash');
+//Models
+var db = require("./models/index");
+
 var PORT = process.env.PORT || 3000;
-
-// Passport Config
-require('./config/passport')(passport);
-
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
 
 // Handlebars
 app.engine(
@@ -32,14 +25,30 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+// Middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.static("public"));
+
+// Express session
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+// connect-flash
+app.use(flash());
+
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-require("./routes/chat-api-route")(app);
+require("./routes/htmlRoutes")(app, passport, db);
 
 var syncOptions = { force: false };
 
@@ -48,6 +57,9 @@ var syncOptions = { force: false };
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
+
+// Passport Config
+require('./config/passport')(passport, db.Users);
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
