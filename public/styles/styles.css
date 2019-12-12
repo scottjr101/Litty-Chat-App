@@ -40,6 +40,16 @@ body{
   padding: 1rem
 }
 
+.output-div {
+  border-radius: 10px;
+  padding-left: 5px;
+}
+
+.feedback-div {
+  border-radius: 10px;
+  /* padding-left: 5px; */
+}
+
 /* #output p{
   padding: 14px 0px;
   margin: 0 20px;
