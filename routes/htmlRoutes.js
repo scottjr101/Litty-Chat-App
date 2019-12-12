@@ -62,7 +62,7 @@ module.exports = function(app, passport, db) {
     passport.authenticate('local', {
       successRedirect: '/',
       failureRedirect: '/users/login',
-      failureFlash: 'Invalid username or password.'
+      failureFlash: 'Invalid email or password.'
     })
   );
 
