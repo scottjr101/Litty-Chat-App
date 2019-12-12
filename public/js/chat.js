@@ -22,6 +22,24 @@ $btn.on('click', function(){
     console.log('this'+message.value)
     message.value = "";
 });
+message.addEventListener('keypress',function (e) {
+    if (e.which == 13) {
+        socket.emit('chat', {
+            message: message.value,
+            handle: handle.value
+        });
+        console.log('this'+message.value)
+        message.value = "";
+      return false;    //<---- Add this line
+    }
+  });
+
+socket.on('user image', image);
+
+function image (from, base64Image) {
+    $('#output').append($('<p>').append($('<b>').text(from),
+        `<img src="${base64Image}"/>`));
+}
 
 message.addEventListener('keypress', function(){
     socket.emit('typing', handle.value);
@@ -31,7 +49,7 @@ message.addEventListener('keypress', function(){
 // Listen for events
 socket.on('chat', function(data){
     feedback.innerHTML = '';
-    output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
+    output.innerHTML = '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>' + output.innerHTML;
     console.log('chat function works')
 });
 
@@ -40,3 +58,16 @@ socket.on('typing', function(data){
     console.log('typing function works' + data)
 });
 
+socket.on('user image', image);
+function image (from, base64Image) {
+    $('#output').append($('<p>').append($('<b>').text(from),
+        '<img src="' + base64Image + '"/>'));
+}
+
+// socket.on("image", function(info) {
+//     if (info.image) {
+//       var img = new Image();
+//       img.src = 'data:image/jpeg;base64,' + image.buffer;
+//       ctx.drawImage(img, 0, 0);
+//     }
+//   });

@@ -42,7 +42,7 @@ body{
 #output p{
   padding: 14px 0px;
   margin: 0 20px;
-  border-bottom: 1px solid #e9e9e9;
+  /* border-bottom: 1px solid #e9e9e9; */
   color: #555;
   border-radius: 10px;
 }
@@ -81,6 +81,10 @@ input{
   margin-top: 20%;
 }
 
+#big-window{
+  overflow: auto;
+}
+
 
 
 /* button{
@@ -91,4 +95,16 @@ input{
   padding: 12px 0;
   width: 100%;
   border-radius: 0 0 2px 2px;
-} */
+}
+
+#search-bar{
+  border:solid #555;
+}
+
+img.active{
+  border:4px solid black;
+}
+
+.emojiButton{
+  cursor: pointer;
+}
