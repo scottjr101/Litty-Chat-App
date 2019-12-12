@@ -1,6 +1,5 @@
-var db = require("../models/index");
 
-module.exports = function(app) {
+module.exports = function(app, passport, db) {
   // Load index page
   app.get("/", function(req, res) {
     db.Litty.findAll({}).then(function(dbLittys) {
@@ -12,7 +11,7 @@ module.exports = function(app) {
   });
   // Login Page
   app.get("/users/login", function (req, res) {
-    res.render("login")
+    res.render("login", {msg: req.flash('error')})
   });
   // Register Page
   app.get("/users/register", function (req, res) {
@@ -21,58 +20,55 @@ module.exports = function(app) {
   // Register Handle
   app.post("/users/register", function (req, res) {
     var { name, email, password, password2 } = req.body;
-    var errors = [];
-
-    // Check reqired fields
-    if(!name || !email || !password || !password2) {
-      // errors.push({ msg:"please fill in all fields" });
-    }
-
+    
     // Check passwords match
     if(password !== password2) {
-      // errors.push({ msg:"Passwords do not match" })
+      res.render("register", {msg:"** Passwords do not match **"});
     }
     
-    if(errors.length > 0) {
-      res.render("register", {
-        errors,
-        name,
-        email,
-        password,
-        password2
-      });
-    } else {
+     else {
       // Validation Passed
-      User.findOne({ email: email })
-        .then(user => {
+      db.Users.findOne({ where: { email: email }})
+        .then(function(user) {
           if(user) {
            //User Exists
-          //  errors.push({ msg: "Email already registered" })
-          window.alert("Email already registered");
-           res.render("register", {
-            errors,
-            name,
-            email,
-            password,
-            password2
-          });
+           res.render("register",
+           {msg:"** Email already registered **"});
+
           } else {
-            var newUser = new User({
+            var newUser = new db.Users({
               name,
               email,
               password
             });
+            
+            newUser.save()
+              .then(function(user) {
+                res.render('register', { msg: "You have been registered and can now log in. Lit fam." });
+              })
+              .catch(function(err) {
+                console.log(err);
+              });
 
-            console.log(newUser)
-            res.send("hello");
+            console.log("New user was created", + newUser.name)
+            // res.send("hello");
           }
         });
     }
 
   });
+
+  app.post('/users/login',
+    passport.authenticate('local', {
+      successRedirect: '/',
+      failureRedirect: '/users/login',
+      failureFlash: 'Invalid email or password.'
+    })
+  );
+
   // Load Litty page and pass in an Litty by id
   app.get("/litty/:id", function(req, res) {
-    Litty.findOne({ where: { id: req.params.id } }).then(function(dbLitty) {
+    db.Litty.findOne({ where: { id: req.params.id } }).then(function(dbLitty) {
       res.render("Litty", {
         litty: dbLitty
       });

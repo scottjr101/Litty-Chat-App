@@ -1,21 +1,34 @@
 // Get references to page elements
-let $exampleText = $("#example-text");
-let $exampleDescription = $("#example-description");
-let $submitBtn = $("#submit");
+// let $exampleText = $("#example-text");
+let $littyName = $('#handle');
+// let $exampleDescription = $("#example-description");
+let $littyMessage = $('#message')
+// let $submitBtn = $("#submit");
+let $submitBtn = $('#sendIt');
 let $exampleList = $("#example-list");
 
 
 
 // The API object contains methods for each kind of request we'll make
 let API = {
-  saveExample: function(example) {
+  // saveExample: function(example) {
+  //   return $.ajax({
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     type: "POST",
+  //     url: "api/examples",
+  //     data: JSON.stringify(example)
+  //   });
+  // },
+  saveExample: function(litty) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/littys",
+      data: JSON.stringify(litty)
     });
   },
   getExamples: function() {
@@ -66,22 +79,22 @@ let refreshExamples = function() {
 let handleFormSubmit = function(event) {
   event.preventDefault();
 
-  let example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  let litty = {
+    name: $littyName.val().trim(),
+    message: $littyMessage.val().trim()
   };
 
-  if (!(example.text && example.description)) {
+  if (!(litty.name && litty.message)) {
     alert("You must enter an example text and description!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveExample(litty).then(function() {
+    // refreshExamples();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  // $exampleText.val("");
+  // $exampleDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked

@@ -9,7 +9,7 @@ module.exports = function(app) {
   });
 
   // Create a new Litty
-  app.post("/api/Littys", function(req, res) {
+  app.post("/api/littys", function(req, res) {
     db.Litty.create(req.body).then(function(dbLitty) {
       res.json(dbLitty);
     });
