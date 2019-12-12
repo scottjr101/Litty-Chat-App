@@ -1,30 +1,77 @@
-<div id="home">
+<div class="row valign-wrapper">
+  <div class="col s12 valign" id="dsplPos">
+    <div class="card hoverable" id="big-window">
+      <div class="card-content white-text">
 
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>Welcome {{name}}</h1>
-        <h2>This is our Chat room. FAM.</h2>
-        <div id="mario-chat">
-            <h2>Litty Chat</h2>
-            <div id="chat-window">
-                <div id="output"></div>
-                <div id="feedback"></div>
-            </div>
-            <input id="handle" type="text" placeholder="Handle" />
-            <input id="message" type="text" placeholder="Message" />
-            <button id="sendIt">Send</button>
+        {{!-- instead of handle form, pull user name --}}
+        <input id="handle" type="text" placeholder="Handle" />
+
+        <div id="chat-window">
+          {{!-- NTA color coding for output/feedback; round these corners!! --}}
+          <div class="feedback-div green center" id="feedback"></div>
+          <div class="output-div blue" id="output"></div>
+
+            {{#each litty}}
+            {{!-- {{this.createdAt}} --}}
+            <p><strong>{{this.name}} :</strong> {{this.message}} </p>
+            {{/each}}
+          
         </div>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each litty}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="litty/{{this.id}}">{{this.name}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
+        <div class="card-action">
+          <input id="message" type="text" placeholder="Message" />
+          <button class="waves-effect waves-light btn" id="sendIt">SEND IT</button>
+        </div>
+        <ul class="collapsible">
+          <li>
+            <div class="collapsible-header green hoverable"><i class="material-icons">emoji_emotions</i>Emojis</div>
+            <div class="collapsible-body emoji-body">
+              {{!-- scrollable emoji menu goes here --}}
+              <div class="row">
+                <div class="col">
+                  <p class="center">Click an emoji to add it to message field!</p>
+                  <br>
+                  <div class="emoji-scroll center" id="emojiSpot"></div>
+                </div>
+              </div>
+            </div>
           </li>
-          {{/each}}
+          <li>
+            <div class="collapsible-header red hoverable"><i class="material-icons">gif</i>Giphy</div>
+            <div class="collapsible-body">
+              {{!-- giphy search bar and results --}}
+              <form id="topic-form">
+                <p for="topic-input">&darr;SEARCH GIFS&darr;</p>
+                <input type="text" id="search-bar">
+                <button class="waves-effect waves-light btn" id="search">SEARCH!</button>
+              </form>
+              <div class="row">
+                <div class="col">
+                  <div class="giphy-scroll" id="topics-view"></div>
+                </div>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
   </div>
-</div>
+</div> 
+
+
+
+        {{!-- Gify shit --}}
+
+        {{!-- <div class="col-12">
+          <form id="topic-form">
+            <label id="topic-text" for="topic-input">&darr;SEARCH GIFS&darr;</label>
+            <input type="text" id="search-bar">
+            <br>
+            {{!-- <input id="search" type="submit" value="SEARCH!"> --}}
+            <button id="search"> Search! </button>
+          </form>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <div id="topics-view"></div>
+          </div>
