@@ -20,16 +20,16 @@ $btn.on('click', function(){
         handle: handle.html()
     });
     console.log('this'+message.value)
-    message.value = "";
+    message.val("");
 });
 message.on('keypress',function (e) {
     if (e.which == 13) {
         socket.emit('chat', {
-            message: message.value,
-            handle: handle.value
+            message: message.val(),
+            handle: handle.html()
         });
         console.log('this'+message.value)
-        message.value = "";
+        message.val("");
       return false;    //<---- Add this line
     }
   });
