@@ -6,7 +6,7 @@ $(document).ready(function () {
 
         var topic = $("#search-bar").val().trim();
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-            topic + "&api_key=vqrHAjf6lQWX7tH5y6TbrT30Q6qkO7un&limit=10";
+            topic + "&api_key=vqrHAjf6lQWX7tH5y6TbrT30Q6qkO7un&limit=144";
 
 
         $.ajax({
