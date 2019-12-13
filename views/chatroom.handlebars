@@ -1,10 +1,11 @@
 <div class="row valign-wrapper">
   <div class="col s12 valign" id="dsplPos">
     <div class="card hoverable" id="big-window">
-      <div class="card-content white-text">
+      <div class="card-content white-text" id="chatroom-card">
 
         {{!-- instead of handle form, pull user name --}}
-        <div title="Log in to change usernames">User Name: <span id="handle" type="text" placeholder="Handle">{{name}}</span></div>
+        {{!-- <div title="Log in to change usernames">User Name: <span id="handle" type="text" placeholder="Handle">{{name}}</span></div> --}}
+        <h6><strong>User: </strong><span id="handle" type="text" placeholder="Handle">{{name}}</span> </h6>
 
         <div id="chat-window">
           {{!-- NTA color coding for output/feedback; round these corners!! --}}
