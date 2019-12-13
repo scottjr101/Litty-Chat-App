@@ -41,6 +41,13 @@ body{
   padding: 1rem
 }
 
+.p-message {
+  margin-bottom: 5px;
+  padding-left: 5px;
+  border-radius: 10px;
+  background-color: #64b5f6;
+}
+
 .output-div {
   border-radius: 10px;
   padding-left: 5px;
