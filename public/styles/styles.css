@@ -1,3 +1,5 @@
+
+
 /* .list-group-item {
   line-height: 2.5;
 } */
@@ -5,7 +7,7 @@
 body{
   /* font-family: 'Nunito'; */
   background-color: #d84315;
-  
+  overflow-y: visible;
 }
 
 /* h2{
@@ -13,6 +15,13 @@ body{
   padding: 10px 20px;
   color: #575ed8;
 } */
+
+.sent-gif {
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding-bottom: 23px;
+}
 
 .nav-wrapper {
   background-color: #ff5722;
@@ -37,7 +46,7 @@ body{
   background: #ffab00;
   color: #0d47a1;
   overflow-y: scroll;
-  height: 500px;
+  height: 450px;
   padding: 1rem
 }
 
@@ -48,6 +57,11 @@ body{
 
 .feedback-div {
   border-radius: 10px;
+}
+
+#message-input-div {
+  padding: 0px 24px;
+  margin-bottom: 0px;
 }
 
 /* #output p{
@@ -88,7 +102,7 @@ body{
 } */
 
 #dsplPos {
-  margin-top: 10%;
+  margin-top: 1%;
 }
 
 #big-window{
@@ -96,6 +110,13 @@ body{
   background-color: #bf360c;
 }
 
+#sendIt {
+  margin-bottom: 8px;
+}
+
+.btn.waves-effect.waves-light {
+  border-radius: 10px;
+}
 
 
 /* button{
