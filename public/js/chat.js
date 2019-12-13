@@ -60,7 +60,7 @@ message.on('keypress', (e)=>{
 
     // Listen for events
 socket.on('chat', function(data){
-    output.html(output.html() + '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>');
+    output.html(output.html() + '<p class="p-message"><strong>' + data.handle + ': </strong>' + data.message + '</p>');
     feedback.html('');
     console.log('chat function works')
     // $('#chat-window, #feedback').animate({scrollTop: $('#feedback').height()}, "slow");

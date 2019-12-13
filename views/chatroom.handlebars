@@ -7,6 +7,11 @@
         <div title="Log in to change usernames">User Name:
           <span id="handle" type="text" placeholder="Handle">{{name}}</span>
         </div>
+        <div id="color-buttons" class="">
+          <i class="material-icons color-buttons grey-text text-darken-3" data-color="dark">lens</i>
+          <i class="material-icons color-buttons orange-text text-accent-4" data-color="orange">lens</i>
+          <i class="material-icons color-buttons cyan-text text-lighten-5" data-color="light">lens</i>
+        </div>
 
         <div id="chat-window">
           {{!-- NTA color coding for output/feedback; round these corners!! --}}
@@ -18,7 +23,7 @@
 
           </p>
           {{/each}}
-          <div class="output-div blue" id="output"></div>
+          <div class="output-div" id="output"></div>
           <div class="feedback-div green center" id="feedback"></div>
         </div>
         <div class="card-action">
@@ -29,7 +34,7 @@
         </div>
         <ul class="collapsible">
           <li>
-            <div class="collapsible-header green waves-effect waves-light hoverable"><i class="material-icons">emoji_emotions</i>Emojis</div>
+            <div class="collapsible-header green waves-effect waves-light hoverable"><i class="material-icons ">emoji_emotions</i>Emojis</div>
             <div class="collapsible-body emoji-body">
               {{!-- scrollable emoji menu goes here --}}
               <div class="row">
