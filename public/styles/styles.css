@@ -192,7 +192,7 @@ img.active {
 .giphy-scroll {
   overflow-y: scroll;
   max-height: 150px;
-  padding: 1rem
+  width: 100%;
 }
 
 /* .emojiButton{
