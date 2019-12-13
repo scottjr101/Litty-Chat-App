@@ -7,7 +7,7 @@ let alert = ()=>{
     console.log('chat connected')
     return false;
 }
-alert();
+$(document).ready(alert)
 
 let message = $('#message')
 let handle = $('#handle');
