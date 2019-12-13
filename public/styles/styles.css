@@ -41,6 +41,10 @@ body{
   padding: 1rem
 }
 
+.emojiButton:hover {
+  font-size: xx-large;
+}
+
 .output-div {
   border-radius: 10px;
   padding-left: 5px;
