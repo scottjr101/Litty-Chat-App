@@ -103,7 +103,18 @@ body{
   background-color: #bf360c;
 }
 
+.emojiButton{
+  cursor: pointer;
+  
+}
 
+.emojiButton:hover {
+  font-size: xx-large; 
+}
+
+img.active{
+  border:4px solid black;
+}
 
 /* button{
   background: #575ed8;
@@ -116,7 +127,7 @@ body{
 }
 
 /* #search-bar{
-  border:solid #555;
+  border:solid #555; 
 } */
 
 .collapsible,
@@ -126,10 +137,10 @@ body{
   border-radius: 10px !important;
 }
 
-img.active{
+/* img.active{
   border:4px solid black;
   border-radius: 10px;
-}
+} */
 
 .emoji-body {
   padding: 29px 0px 0px 0px;
@@ -147,6 +158,7 @@ img.active{
   padding: 1rem
 }
 
-.emojiButton{
+/* .emojiButton{
   cursor: pointer;
-}
+  
+} */
