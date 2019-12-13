@@ -11,8 +11,8 @@ alert();
 let message = $('#message')
 let handle = $('#handle');
 let $btn = $('#sendIt');
-let output = document.getElementById('output');
-let feedback = document.getElementById('feedback');
+let output = $('#output');
+let feedback = $('#feedback');
 // Emit events
 
 $btn.on('click', function(){
@@ -56,8 +56,8 @@ message.on('keypress', function(){
 
 // Listen for events
 socket.on('chat', function(data){
-    feedback.innerHTML = '';
-    output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
+    feedback.html('');
+    output.html('<p><strong>' + data.handle + ': </strong>' + data.message + '</p>');
     console.log('chat function works')
     // $('#chat-window, #feedback').animate({scrollTop: $('#feedback').height()}, "slow");
     $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
