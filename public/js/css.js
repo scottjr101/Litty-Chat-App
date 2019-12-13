@@ -12,6 +12,7 @@ let orange = () => {
     $('#chat-window').css('color', '#37474f')
     $('.p-message').css('color', '#64b5f6')
     $('#big-window').css('background-color', '#bf360c')
+    $('.page-footer').css('background-color', '#bf360c')
 }
 
 let dark = () => {
@@ -22,6 +23,7 @@ let dark = () => {
     $('#chat-window').css('color', '#cacaca')
     $('.p-message').css('color', '#299bf8')
     $('#big-window').css('background-color', '#393939')
+    $('.page-footer').css('background-color', '#37474f')
 }
 let light = () => {
     // console.log('working')
@@ -31,6 +33,7 @@ let light = () => {
     $('#chat-window').css('color', '#314148')
     $('.p-message').css('color', '#0c72c6')
     $('#big-window').css('background-color', '#88abbd')
+    $('.page-footer').css('background-color', '#0d47a1')
 }
 
 

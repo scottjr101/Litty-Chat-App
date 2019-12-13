@@ -1,96 +1,100 @@
 <html>
+
 <body>
   <main>
-<div class="row valign-wrapper">
-  <div class="col s12 valign" id="dsplPos">
-    <div class="card hoverable" id="big-window">
-      <div class="card-content white-text" id="chatroom-card">
+    <div class="row valign-wrapper">
+      <div class="col s12 valign" id="dsplPos">
+        <div class="card hoverable" id="big-window">
+          <div class="card-content white-text" id="chatroom-card">
 
-        {{!-- instead of handle form, pull user name --}}
-        <div title="Log in to change usernames">User Name:
-          <span id="handle" type="text" placeholder="Handle">{{name}}</span>
-        </div>
-        <div id="color-buttons" class="">
-          <i class="material-icons color-buttons grey-text text-darken-3" data-color="dark">lens</i>
-          <i class="material-icons color-buttons orange-text text-accent-4" data-color="orange">lens</i>
-          <i class="material-icons color-buttons cyan-text text-lighten-5" data-color="light">lens</i>
-        </div>
-
-        <div id="chat-window">
-          {{!-- NTA color coding for output/feedback; round these corners!! --}}
-          {{#each litty}}
-          {{!-- {{this.createdAt}} --}}
-          <p>
-            <strong>{{this.name}} :</strong> {{{this.message}}}
-            {{!-- {{#if user.email == uniqueId}} --}}
-
-          </p>
-          {{/each}}
-          <div class="output-div" id="output"></div>
-          <div class="feedback-div green center" id="feedback"></div>
-        </div>
-        
-        <ul class="collapsible">
-          <li>
-            <div class="collapsible-header green waves-effect waves-light hoverable"><i class="material-icons">emoji_emotions</i>Emojis</div>
-            <div class="collapsible-body lighten-1 emoji-body">
-              {{!-- scrollable emoji menu goes here --}}
-              <div class="col">
-                <div class="row">
-                  <p class="center">Click an emoji to add it to message field!</p>
-                  <br>
-                  <div class="emoji-scroll center" id="emojiSpot"></div>
-                </div>
-              </div>
+            {{!-- instead of handle form, pull user name --}}
+            <div title="Log in to change usernames">User Name:
+              <span id="handle" type="text" placeholder="Handle">{{name}}</span>
             </div>
-          </li>
-          
-          <li>
-            <div class="collapsible-header red waves-effect waves-light hoverable"><i class="material-icons">gif</i>Giphy</div>
-            <div class="collapsible-body lighten-1">
-              {{!-- giphy search bar and results --}}
-              <form id="topic-form">
-                <p for="topic-input">&darr;SEARCH GIFS&darr;</p>
-                <input type="text" id="search-bar">
-                <button class="col s10 offset-s1 amber darken-1 waves-effect waves-light btn" id="search">SEARCH!</button>
-              </form>
-              <div class="row">
-                <div class="row">
-                  <div class="giphy-scroll" id="topics-view"></div>
-                </div>
-              </div>
+            <div id="color-buttons" class="">
+              <i class="material-icons color-buttons grey-text text-darken-3" data-color="dark">lens</i>
+              <i class="material-icons color-buttons orange-text text-accent-4" data-color="orange">lens</i>
+              <i class="material-icons color-buttons cyan-text text-lighten-5" data-color="light">lens</i>
             </div>
-          </li>
 
-          </ul>
-        
+            <div id="chat-window">
+              {{!-- NTA color coding for output/feedback; round these corners!! --}}
+              {{#each litty}}
+              {{!-- {{this.createdAt}} --}}
+              <p>
+                <strong>{{this.name}} :</strong> {{{this.message}}}
+                {{!-- {{#if user.email == uniqueId}} --}}
+
+              </p>
+              {{/each}}
+              <div class="output-div" id="output"></div>
+              <div class="feedback-div green center" id="feedback"></div>
+            </div>
+
+            <ul class="collapsible">
+              <li>
+                <div class="collapsible-header green waves-effect waves-light hoverable"><i
+                    class="material-icons">emoji_emotions</i>Emojis</div>
+                <div class="collapsible-body lighten-1 emoji-body">
+                  {{!-- scrollable emoji menu goes here --}}
+                  <div class="col">
+                    <div class="row">
+                      <p class="center">Click an emoji to add it to message field!</p>
+                      <br>
+                      <div class="emoji-scroll center" id="emojiSpot"></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="collapsible-header red waves-effect waves-light hoverable"><i
+                    class="material-icons">gif</i>Giphy</div>
+                <div class="collapsible-body lighten-1">
+                  {{!-- giphy search bar and results --}}
+                  <form id="topic-form">
+                    <p for="topic-input">&darr;SEARCH GIFS&darr;</p>
+                    <input type="text" id="search-bar">
+                    <button class="col s10 offset-s1 amber darken-1 waves-effect waves-light btn"
+                      id="search">SEARCH!</button>
+                  </form>
+                  <div class="row">
+                    <div class="row">
+                      <div class="giphy-scroll" id="topics-view"></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
 
 
+
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div> 
 
-<br>
-<br>
-<br>
-<br>
-</main>
+    <br>
+    <br>
+    <br>
+    <br>
+  </main>
 
-<footer class="page-footer">
-  
-          <div class="container">
-  
-          
-         <div class="row" id="message-input-div">
-          <input id="message" type="text" placeholder="Message" />
-          <button class="col s10 offset-s1 amber darken-1 waves-effect waves-light btn" id="sendIt">SEND IT</button>
-          </div>
-          </div>
+  <footer class="page-footer">
 
-        </footer>
+    <div class="container">
 
 
-        </body>
+      <div class="row" id="message-input-div">
+        <input id="message" type="text" placeholder="Message" />
+        <button class="col s10 offset-s1 amber darken-1 waves-effect waves-light btn" id="sendIt">SEND IT</button>
+      </div>
+    </div>
+
+  </footer>
+
+
+</body>
 
 </html>
