@@ -46,6 +46,10 @@ body {
   border-radius: 2px;
 } */
 
+.color-buttons:hover {
+  cursor: pointer;
+}
+
 #chat-window {
   /* height: 100%; */
   /* overflow: auto; */
