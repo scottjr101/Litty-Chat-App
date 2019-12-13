@@ -1,12 +1,13 @@
 // Make connection
-let socket = io.connect('https://intense-tor-53215.herokuapp.com/');
-// let socket = io.connect('http://localhost:3000/');
+// let socket = io.connect('https://intense-tor-53215.herokuapp.com/');
+let socket = io.connect('http://localhost:3000/');
 
 let alert = ()=>{
-    $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
+    $("#chat-window").animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
     console.log('chat connected')
+    return false;
 }
-alert();
+// alert();
 
 let message = $('#message')
 let handle = $('#handle');
@@ -21,7 +22,7 @@ $btn.on('click', function(){
         message: message.val(),
         handle: handle.html()
     });
-    console.log('this'+message.value)
+    console.log('this'+message.val())
     message.val("");
 });
 message.on('keypress',function (e) {
@@ -30,7 +31,7 @@ message.on('keypress',function (e) {
             message: message.val(),
             handle: handle.html()
         });
-        console.log('this'+message.value)
+        console.log('this'+message.val())
         message.val("");
       return false;    //<---- Add this line
     }
@@ -57,10 +58,10 @@ message.on('keypress', function(){
 // Listen for events
 socket.on('chat', function(data){
     feedback.html('');
-    output.html('<p><strong>' + data.handle + ': </strong>' + data.message + '</p>');
+    output.html('<p><strong>' + data.handle + ': </strong>' + data.message + '</p>' + output.html());
     console.log('chat function works')
     // $('#chat-window, #feedback').animate({scrollTop: $('#feedback').height()}, "slow");
-    $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
+    // $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
 });
 
 socket.on('typing', function(data){
