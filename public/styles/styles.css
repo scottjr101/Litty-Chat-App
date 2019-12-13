@@ -46,7 +46,7 @@ body {
 #chat-window {
   /* height: 100%; */
   /* overflow: auto; */
-  border-radius: 10px;
+  border-radius: 5px;
   background: #ffa726;
   color: #37474f;
   overflow-y: scroll;
@@ -198,16 +198,19 @@ img.active{
 
 #chat-window::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
-  background-color: #CCCCCC;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 #chat-window::-webkit-scrollbar {
   width: 10px;
-  background-color: #F5F5F5;
+  /* background-color: #F5F5F5; */
 }
 
+
 #chat-window::-webkit-scrollbar-thumb {
-  background-color: #FFF;
+  border-radius: 10px;
+  /* background-color: #FFF; */
   background-image: -webkit-linear-gradient(90deg,
       rgba(0, 0, 0, 1) 0%,
       rgba(0, 0, 0, 1) 25%,
