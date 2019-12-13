@@ -38,7 +38,7 @@ let purple = () => {
     $('.nav-wrapper').css('background-color', '#9575cd')
     $('#chat-window').css('background-color', '#ede7f6')
     $('#chat-window').css('color', '#37474f')
-    $('.p-message').css('background-color', '#9575cd ')
+    // $('.p-message').css('background-color', '#9575cd ')
     $('#big-window').css('background-color', '#673ab7')
     $('.page-footer').css('background-color', '#9575cd')
 }
@@ -48,7 +48,7 @@ let red = () => {
     $('.nav-wrapper').css('background-color', '#b71c1c')
     $('#chat-window').css('background-color', '#c62828')
     $('#chat-window').css('color', '#212121')
-    $('.p-message').css('background-color', '#bdbdbd')
+    // $('.p-message').css('background-color', '#bdbdbd')
     $('#big-window').css('background-color', '#424242')
     $('.page-footer').css('background-color', '#e0e0e0')
 }
@@ -58,7 +58,7 @@ let yellow = () => {
     $('.nav-wrapper').css('background-color', '#00b0ff')
     $('#chat-window').css('background-color', '#039be5')
     $('#chat-window').css('color', '#212121')
-    $('.p-message').css('background-color', '#ffee58')
+    // $('.p-message').css('background-color', '#ffee58')
     $('#big-window').css('background-color', '#fbc02d')
     $('.page-footer').css('background-color', '#81d4fa')
 }
@@ -68,7 +68,7 @@ let green = () => {
     $('.nav-wrapper').css('background-color', '#33691e')
     $('#chat-window').css('background-color', '#9ccc65')
     $('#chat-window').css('color', '#212121')
-    $('.p-message').css('background-color', '#7cb342')
+    // $('.p-message').css('background-color', '#7cb342')
     $('#big-window').css('background-color', '#558b2f')
     $('.page-footer').css('background-color', '#558b2f')
 }
