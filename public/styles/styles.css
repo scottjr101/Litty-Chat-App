@@ -98,6 +98,11 @@ body{
 
 .emojiButton{
   cursor: pointer;
+  
+}
+
+.emojiButton:hover {
+  font-size: xx-large; 
 }
 
 img.active{
@@ -115,7 +120,7 @@ img.active{
 }
 
 /* #search-bar{
-  border:solid #555;
+  border:solid #555; 
 } */
 
 .collapsible,
@@ -125,10 +130,10 @@ img.active{
   border-radius: 10px !important;
 }
 
-img.active{
+/* img.active{
   border:4px solid black;
   border-radius: 10px;
-}
+} */
 
 .emoji-body {
   padding: 29px 0px 0px 0px;
@@ -146,6 +151,7 @@ img.active{
   padding: 1rem
 }
 
-.emojiButton{
+/* .emojiButton{
   cursor: pointer;
-}
+  
+} */

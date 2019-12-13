@@ -2,17 +2,16 @@
 let socket = io.connect('http://localhost:3000/');
 
 let alert = ()=>{
-    $("#chat-window").animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
+    $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
     console.log('chat connected')
-    return false;
 }
 alert();
 
 let message = $('#message')
 let handle = $('#handle');
 let $btn = $('#sendIt');
-let output = $('#output');
-let feedback = $('#feedback');
+let output = document.getElementById('output');
+let feedback = document.getElementById('feedback');
 // Emit events
 
 $btn.on('click', function(){
@@ -21,7 +20,7 @@ $btn.on('click', function(){
         message: message.val(),
         handle: handle.html()
     });
-    console.log('this'+message.val())
+    console.log('this'+message.value)
     message.val("");
 });
 message.on('keypress',function (e) {
@@ -30,7 +29,7 @@ message.on('keypress',function (e) {
             message: message.val(),
             handle: handle.html()
         });
-        console.log('this'+message.val())
+        console.log('this'+message.value)
         message.val("");
       return false;    //<---- Add this line
     }
@@ -56,21 +55,16 @@ message.on('keypress', function(){
 
 // Listen for events
 socket.on('chat', function(data){
-    feedback.html('');
-    output.html(output.html()+ '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>');
+    feedback.innerHTML = '';
+    output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
     console.log('chat function works')
     // $('#chat-window, #feedback').animate({scrollTop: $('#feedback').height()}, "slow");
     $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
 });
 
 socket.on('typing', function(data){
-    if (!message.val('')){
-
-        feedback.html('<p><em>' + data + ' is typing a message...</em></p>');
-        console.log('typing function works' + data)
-    }else{
-        feedback.html('')
-    }
+    feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
+    console.log('typing function works' + data)
     // $("#chat-window").animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
 });
 
