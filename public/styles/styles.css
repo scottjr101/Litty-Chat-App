@@ -105,6 +105,10 @@ body{
   font-size: 16px;
 } */
 
+#welcome-title {
+  margin-top: 20px;
+}
+
 #dsplPos {
   margin-top: 1%;
 }
@@ -112,6 +116,19 @@ body{
 #big-window{
   overflow: auto;
   background-color: #bf360c;
+}
+
+.emojiButton{
+  cursor: pointer;
+  
+}
+
+.emojiButton:hover {
+  font-size: xx-large; 
+}
+
+img.active{
+  border:4px solid black;
 }
 
 #sendIt {
