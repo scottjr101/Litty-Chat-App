@@ -1,6 +1,6 @@
 // Make connection
-let socket = io.connect('https://intense-tor-53215.herokuapp.com/');
-// let socket = io.connect('http://localhost:3000/');
+// let socket = io.connect('https://intense-tor-53215.herokuapp.com/');
+let socket = io.connect('http://localhost:3000/');
 
 let alert = ()=>{
     $("#chat-window").animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
@@ -65,14 +65,9 @@ socket.on('chat', function(data){
 });
 
 socket.on('typing', function(data){
-    if (!message.val('')){
-
-        feedback.html('<p><em>' + data + ' is typing a message...</em></p>');
+       feedback.html('<p><em>' + data + ' is typing a message...</em></p>');
         console.log('typing function works' + data)
-    }else{
-        feedback.html('')
-    }
-    // $("#chat-window").animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
+    
 });
 
 socket.on('user image', image);
