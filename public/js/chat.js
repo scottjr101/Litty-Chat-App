@@ -44,9 +44,17 @@ function image (from, base64Image) {
         `<img src="${base64Image}"/>`));
 }
 
-message.on('keypress', function(){
-    socket.emit('typing', handle.html());
-    console.log('searching') 
+message.on('keypress', (e)=>{
+    let code = (e.keyCode || e.which);
+
+    // do nothing if it's an arrow key
+    if(code == 13) {
+        return;
+    }
+    // if (!e.which == 13){
+        socket.emit('typing', handle.html());
+        console.log('searching') 
+    // }
 })
 // $(document).click(typing)
 // let typing = () =>{
@@ -57,8 +65,8 @@ message.on('keypress', function(){
 
 // Listen for events
 socket.on('chat', function(data){
-    feedback.html('');
     output.html('<p><strong>' + data.handle + ': </strong>' + data.message + '</p>' + output.html());
+    feedback.html('');
     console.log('chat function works')
     // $('#chat-window, #feedback').animate({scrollTop: $('#feedback').height()}, "slow");
     // $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
