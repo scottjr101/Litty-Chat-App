@@ -109,8 +109,8 @@ let handleDeleteBtnClick = function() {
     refreshExamples();
   });
 };
-$(document).on('ready', function(){ 
+// $(document).on('ready', function(){ 
   // Add event listeners to the submit and delete buttons
   $submitBtn.on("click", handleFormSubmit);
   $exampleList.on("click", ".delete", handleDeleteBtnClick);
-})
+// })

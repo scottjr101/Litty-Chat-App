@@ -1,7 +1,7 @@
 // Make connection
 // let socket = io.connect('https://intense-tor-53215.herokuapp.com/');
 let socket = io.connect('http://localhost:3000/');
-$(document).ready(function(){
+// $(document).ready(function(){
 let alert = ()=>{
     $("#chat-window").animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
     console.log('chat connected')
@@ -80,4 +80,4 @@ function image (from, base64Image) {
         '<img src="' + base64Image + '"/>'));
 }
 
-})
+// })
