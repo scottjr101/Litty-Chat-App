@@ -54,12 +54,11 @@ message.on('keypress', (e)=>{
     // if (!e.which == 13){
         socket.emit('typing', handle.html());
         console.log('searching') 
-        $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
-    // }
-})
+        // }
+    })
 
 
-// Listen for events
+    // Listen for events
 socket.on('chat', function(data){
     output.html('<p><strong>' + data.handle + ': </strong>' + data.message + '</p>' + output.html());
     feedback.html('');
@@ -69,8 +68,9 @@ socket.on('chat', function(data){
 });
 
 socket.on('typing', function(data){
-       feedback.html('<p><em>' + data + ' is typing a message...</em></p>');
-        console.log('typing function works' + data)
+    feedback.html('<p><em>' + data + ' is typing a message...</em></p>');
+    console.log('typing function works' + data)
+    $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
     
 });
 
