@@ -4,18 +4,24 @@
       <div class="card-content white-text" id="chatroom-card">
 
         {{!-- instead of handle form, pull user name --}}
-        {{!-- <div title="Log in to change usernames">User Name: <span id="handle" type="text" placeholder="Handle">{{name}}</span></div> --}}
-        <h6 title="Go to login to change users"><strong>User: </strong><span id="handle" type="text" placeholder="Handle">{{name}}</span> </h6>
+        <div title="Log in to change usernames">User Name:
+          <span id="handle" type="text" placeholder="Handle">{{name}}</span>
+        </div>
 
         <div id="chat-window">
           {{!-- NTA color coding for output/feedback; round these corners!! --}}
-            {{#each litty}}
-            {{!-- {{this.createdAt}} --}}
-            <p><strong>{{this.name}} :</strong> {{{this.message}}} </p>
-            {{/each}}
-          <div class="output-div blue" id="output"></div></div>
           <div class="feedback-div green center" id="feedback"></div>
-        <div class="card-action row" id="message-input-div">
+          <div class="output-div blue" id="output"></div>
+          {{#each litty}}
+          {{!-- {{this.createdAt}} --}}
+          <p>
+            <strong>{{this.name}} :</strong> {{{this.message}}}
+            {{!-- {{#if user.email == uniqueId}} --}}
+
+          </p>
+          {{/each}}
+        </div>
+        <div class="card-action">
           <input id="message" type="text" placeholder="Message" />
           <button class="col s10 offset-s1 amber darken-1 waves-effect waves-light btn" id="sendIt">SEND IT</button>
         </div>
