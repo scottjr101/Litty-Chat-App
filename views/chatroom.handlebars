@@ -10,8 +10,6 @@
 
         <div id="chat-window">
           {{!-- NTA color coding for output/feedback; round these corners!! --}}
-          <div class="feedback-div green center" id="feedback"></div>
-          <div class="output-div blue" id="output"></div>
           {{#each litty}}
           {{!-- {{this.createdAt}} --}}
           <p>
@@ -20,6 +18,8 @@
 
           </p>
           {{/each}}
+          <div class="output-div blue" id="output"></div>
+          <div class="feedback-div green center" id="feedback"></div>
         </div>
         <div class="card-action">
           <div class="row" id="message-input-div">

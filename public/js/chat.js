@@ -7,7 +7,7 @@ let alert = ()=>{
     console.log('chat connected')
     return false;
 }
-// alert();
+alert();
 
 let message = $('#message')
 let handle = $('#handle');
@@ -54,6 +54,7 @@ message.on('keypress', (e)=>{
     // if (!e.which == 13){
         socket.emit('typing', handle.html());
         console.log('searching') 
+        $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
     // }
 })
 
@@ -64,7 +65,7 @@ socket.on('chat', function(data){
     feedback.html('');
     console.log('chat function works')
     // $('#chat-window, #feedback').animate({scrollTop: $('#feedback').height()}, "slow");
-    // $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
+    $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
 });
 
 socket.on('typing', function(data){
