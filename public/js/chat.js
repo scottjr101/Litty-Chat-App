@@ -1,13 +1,13 @@
 // Make connection
-// let socket = io.connect('https://intense-tor-53215.herokuapp.com/');
-let socket = io.connect('http://localhost:3000/');
+let socket = io.connect('https://intense-tor-53215.herokuapp.com/');
+// let socket = io.connect('http://localhost:3000/');
 // $(document).ready(function(){
 let alert = ()=>{
     $("#chat-window").animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
     console.log('chat connected')
     return false;
 }
-alert();
+$(document).ready(alert)
 
 let message = $('#message')
 let handle = $('#handle');
