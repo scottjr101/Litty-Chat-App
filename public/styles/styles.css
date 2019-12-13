@@ -237,3 +237,7 @@ main {
   left: 0;
   padding: 0;
 }
+
+#search{
+  position: static;
+}
