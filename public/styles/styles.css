@@ -31,6 +31,10 @@ body{
   border-radius: 10px;
 }
 
+#chatroom-card{
+  padding-top: 0;
+}
+
 /* #mario-chat{
   max-width: 100%;
   margin: 30px auto;
