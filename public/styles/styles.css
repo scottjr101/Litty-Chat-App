@@ -238,6 +238,6 @@ main {
 #search{
   position: static;
 }
-#search-bar{
+#search-bar, #message{
   color: ivory;
  }
