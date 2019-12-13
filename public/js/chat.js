@@ -48,7 +48,7 @@ message.on('keypress', (e)=>{
     let code = (e.keyCode || e.which);
 
     // do nothing if it's an arrow key
-    if(code == 13) {
+    if(code == 13 || code == 08) {
         return;
     }
     // if (!e.which == 13){
@@ -56,12 +56,7 @@ message.on('keypress', (e)=>{
         console.log('searching') 
     // }
 })
-// $(document).click(typing)
-// let typing = () =>{
-//     if (!message.val()){
-//         socket.emit('typing', handle.html());
-//     }
-// }
+
 
 // Listen for events
 socket.on('chat', function(data){
@@ -84,10 +79,4 @@ function image (from, base64Image) {
         '<img src="' + base64Image + '"/>'));
 }
 
-// socket.on("image", function(info) {
-//     if (info.image) {
-//       var img = new Image();
-//       img.src = 'data:image/jpeg;base64,' + image.buffer;
-//       ctx.drawImage(img, 0, 0);
-//     }
-//   });
+
