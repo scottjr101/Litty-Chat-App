@@ -1,3 +1,6 @@
+<html>
+<body>
+  <main>
 <div class="row valign-wrapper">
   <div class="col s12 valign" id="dsplPos">
     <div class="card hoverable" id="big-window">
@@ -21,19 +24,14 @@
           <div class="output-div blue" id="output"></div>
           <div class="feedback-div green center" id="feedback"></div>
         </div>
-        <div class="card-action page-footer">
-          <div class="row" id="message-input-div">
-          <input id="message" type="text" placeholder="Message" />
-          <button class="col s10 offset-s1 amber darken-1 waves-effect waves-light btn" id="sendIt">SEND IT</button>
-          </div>
-        </div>
+        
         <ul class="collapsible">
           <li>
             <div class="collapsible-header green waves-effect waves-light hoverable"><i class="material-icons">emoji_emotions</i>Emojis</div>
             <div class="collapsible-body emoji-body">
               {{!-- scrollable emoji menu goes here --}}
-              <div class="row">
-                <div class="col">
+              <div class="col">
+                <div class="row">
                   <p class="center">Click an emoji to add it to message field!</p>
                   <br>
                   <div class="emoji-scroll center" id="emojiSpot"></div>
@@ -41,6 +39,7 @@
               </div>
             </div>
           </li>
+          
           <li>
             <div class="collapsible-header red waves-effect waves-light hoverable"><i class="material-icons">gif</i>Giphy</div>
             <div class="collapsible-body blue lighten-1">
@@ -51,14 +50,42 @@
                 <button class="waves-effect waves-light btn" id="search">SEARCH!</button>
               </form>
               <div class="row">
-                <div class="col">
+                <div class="row">
                   <div class="giphy-scroll" id="topics-view"></div>
                 </div>
               </div>
             </div>
           </li>
-        </ul>
+
+          </ul>
+        
+
+
       </div>
     </div>
   </div>
 </div> 
+
+<br>
+<br>
+<br>
+<br>
+</main>
+
+<footer class="page-footer">
+  
+          <div class="container">
+  
+          
+         <div class="row" id="message-input-div">
+          <input id="message" type="text" placeholder="Message" />
+          <button class="col s10 offset-s1 amber darken-1 waves-effect waves-light btn" id="sendIt">SEND IT</button>
+          </div>
+          </div>
+
+        </footer>
+
+
+        </body>
+
+</html>

@@ -8,6 +8,9 @@ body {
   /* font-family: 'Nunito'; */
   background-color: #d84315;
   overflow-y: visible;
+  /* display: flex!important;
+  min-height: 100vh!important;
+  flex-direction: column!important; */
 }
 
 /* h2{
@@ -71,8 +74,8 @@ body {
 }
 
 #message-input-div {
-  padding: 0px 24px;
-  margin-bottom: 0px;
+  /* padding: 0px 24px; */
+  margin: auto ;
 }
 
 /* #output p{
@@ -146,9 +149,9 @@ img.active {
   border-radius: 10px;
 }
 
-img.active{
+/* img.active{
   border:4px solid black;
-}
+} */
 
 /* button{
   background: #575ed8;
@@ -169,6 +172,7 @@ img.active{
 .collapsible-body {
   border: none !important;
   border-radius: 10px !important;
+  position: static;
 }
 
 /* img.active{
@@ -221,13 +225,15 @@ img.active{
   display: flex!important;
   min-height: 100vh!important;
   flex-direction: column!important;
-}
+} */
 
 main {
   flex: 1 0 auto!important;
-} */
+}
 .page-footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  left: 0;
+  padding: 0;
 }
