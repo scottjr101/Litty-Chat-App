@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "password",
-    "database": "litty_db",
-    "host": "localhost",
+    "username": "n6saa1wyjimerk7v",
+    "password": "sic73zmvkw00l3rj",
+    "database": "ixjp351el82pvpno",
+    "host": "lolyz0ok3stvj6f0.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
