@@ -4,7 +4,7 @@
   line-height: 2.5;
 } */
 
-body{
+body {
   /* font-family: 'Nunito'; */
   background-color: #d84315;
   overflow-y: visible;
@@ -43,7 +43,7 @@ body{
   border-radius: 2px;
 } */
 
-#chat-window{
+#chat-window {
   /* height: 100%; */
   /* overflow: auto; */
   border-radius: 10px;
@@ -89,7 +89,7 @@ body{
   border-radius: 10px;
 } */
 
-#output strong{
+#output strong {
   color: #575ed8;
 }
 
@@ -120,22 +120,22 @@ body{
   margin-top: 1%;
 }
 
-#big-window{
+#big-window {
   overflow: auto;
   background-color: #bf360c;
 }
 
-.emojiButton{
+.emojiButton {
   cursor: pointer;
-  
+
 }
 
 .emojiButton:hover {
-  font-size: xx-large; 
+  font-size: xx-large;
 }
 
-img.active{
-  border:4px solid black;
+img.active {
+  border: 4px solid black;
 }
 
 #sendIt {
@@ -196,3 +196,23 @@ img.active{
   cursor: pointer;
   
 } */
+
+#chat-window::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
+  background-color: #CCCCCC;
+}
+
+#chat-window::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+#chat-window::-webkit-scrollbar-thumb {
+  background-color: #FFF;
+  background-image: -webkit-linear-gradient(90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 25%,
+      transparent 100%,
+      rgba(0, 0, 0, 1) 75%,
+      transparent)
+}
