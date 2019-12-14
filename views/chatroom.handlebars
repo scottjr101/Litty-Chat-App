@@ -28,7 +28,7 @@
               {{!-- NTA color coding for output/feedback; round these corners!! --}}
               {{#each litty}}
               {{!-- {{this.createdAt}} --}}
-              <p>
+              <p class="old-message">
                 <strong>{{this.name}} :</strong> {{{this.message}}}
                 {{!-- {{#if user.email == uniqueId}} --}}
 
@@ -40,7 +40,7 @@
 
             <ul class="collapsible">
               <li>
-                <div class="collapsible-header green waves-effect waves-light hoverable"><i
+                <div class="collapsible-header deep-purple lighten-2 waves-effect waves-light hoverable"><i
                     class="material-icons">emoji_emotions</i>Emojis</div>
                 <div class="collapsible-body lighten-1 emoji-body">
                   {{!-- scrollable emoji menu goes here --}}
@@ -55,7 +55,7 @@
               </li>
 
               <li>
-                <div class="collapsible-header red waves-effect waves-light hoverable"><i
+                <div class="collapsible-header indigo darken-2 waves-effect waves-light hoverable"><i
                     class="material-icons">gif</i>Giphy</div>
                 <div class="collapsible-body lighten-1">
                   {{!-- giphy search bar and results --}}

@@ -20,7 +20,7 @@ let dark = () => {
     $('.nav-wrapper').css('background-color', '#252525')
     $('#chat-window').css('background-color', '#585757')
     $('#chat-window').css('color', '#cacaca')
-    $('#big-window').css('background-color', '#393939')
+    $('#big-window').css('background-color', '#424242')
     $('.page-footer').css('background-color', '#37474f')
 }
 let light = () => {

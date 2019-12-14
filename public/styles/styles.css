@@ -13,12 +13,6 @@ body {
   flex-direction: column!important; */
 }
 
-/* h2{
-  font-size: 18px;
-  padding: 10px 20px;
-  color: #575ed8;
-} */
-
 .sent-gif {
   display: block;
   margin: auto;
@@ -38,14 +32,6 @@ body {
   padding-top: 0;
 }
 
-/* #mario-chat{
-  max-width: 100%;
-  margin: 30px auto;
-  border: 1px solid #ddd;
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
-  border-radius: 2px;
-} */
-
 .color-buttons:hover {
   cursor: pointer;
 }
@@ -57,7 +43,7 @@ body {
   background: #585757;
   color: #cacaca;
   overflow-y: scroll;
-  height: 450px;
+  height: 56vh;
   padding: 1rem;
 }
 
@@ -75,7 +61,124 @@ body {
   margin: auto ;
 }
 
-/* #output p{
+#welcome-title {
+  margin-top: 20px;
+}
+
+#dsplPos {
+  margin-top: 1%;
+}
+
+#big-window {
+  overflow: auto;
+  background-color: #424242;
+}
+
+.emojiButton {
+  cursor: pointer;
+
+}
+
+.emojiButton:hover {
+  font-size: xx-large;
+}
+
+img.active {
+  border: 4px solid black;
+}
+
+#sendIt {
+  float: right;
+  width: 15%;
+  margin: 10px 0px 0px;
+  
+}
+
+.btn.waves-effect.waves-light {
+  border-radius: 10px;
+}
+
+.collapsible,
+.collapsible-header,
+.collapsible-body {
+  border: none !important;
+  border-radius: 10px !important;
+  position: static;
+}
+
+/* img.active{
+  border:4px solid black;
+  border-radius: 10px;
+} */
+
+.emoji-body {
+  padding: 29px 0px 0px 0px;
+}
+
+.emoji-scroll {
+  overflow-y: scroll;
+  height: 150px;
+  padding: 1rem;
+}
+
+.giphy-scroll {
+  overflow-y: scroll;
+  max-height: 150px;
+  width: 100%;
+}
+
+#chat-window::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#chat-window::-webkit-scrollbar {
+  width: 10px;
+  /* background-color: #F5F5F5; */
+}
+
+
+#chat-window::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  /* background-color: #FFF; */
+  background-image: -webkit-linear-gradient(90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 25%,
+      transparent 100%,
+      rgba(0, 0, 0, 1) 75%,
+      transparent)
+}
+
+main {
+  flex: 1 0 auto!important;
+}
+.page-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  padding: 0;
+  background-color: #37474f;
+}
+
+#search{
+  position: static;
+}
+#search-bar, #message{
+  color: ivory;
+ }
+
+ #message{
+  width: 80%;
+ }
+
+ .old-message img{
+  max-width: 100%;
+ }
+
+
+ /* #output p{
   padding: 14px 0px;
   margin: 0 20px;
   color: #555;
@@ -112,42 +215,16 @@ body {
   font-size: 16px;
 } */
 
-#welcome-title {
-  margin-top: 20px;
-}
+/* body {
+  display: flex!important;
+  min-height: 100vh!important;
+  flex-direction: column!important;
+} */
 
-#dsplPos {
-  margin-top: 1%;
-}
-
-#big-window {
-  overflow: auto;
-  background-color: #393939;
-}
-
-.emojiButton {
+/* .emojiButton{
   cursor: pointer;
-
-}
-
-.emojiButton:hover {
-  font-size: xx-large;
-}
-
-img.active {
-  border: 4px solid black;
-}
-
-#sendIt {
-  float: right;
-  width: 15%;
-  margin: 10px 0px 0px;
   
-}
-
-.btn.waves-effect.waves-light {
-  border-radius: 10px;
-}
+} */
 
 /* img.active{
   border:4px solid black;
@@ -166,91 +243,3 @@ img.active {
 /* #search-bar{
   border:solid #555; 
 } */
-
-.collapsible,
-.collapsible-header,
-.collapsible-body {
-  border: none !important;
-  border-radius: 10px !important;
-  position: static;
-}
-
-/* img.active{
-  border:4px solid black;
-  border-radius: 10px;
-} */
-
-.emoji-body {
-  padding: 29px 0px 0px 0px;
-}
-
-.emoji-scroll {
-  overflow-y: scroll;
-  height: 150px;
-  padding: 1rem;
-}
-
-.giphy-scroll {
-  overflow-y: scroll;
-  max-height: 150px;
-  width: 100%;
-}
-
-/* .emojiButton{
-  cursor: pointer;
-  
-} */
-
-#chat-window::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
-  background-color: transparent;
-  box-shadow: none;
-}
-
-#chat-window::-webkit-scrollbar {
-  width: 10px;
-  /* background-color: #F5F5F5; */
-}
-
-
-#chat-window::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  /* background-color: #FFF; */
-  background-image: -webkit-linear-gradient(90deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 1) 25%,
-      transparent 100%,
-      rgba(0, 0, 0, 1) 75%,
-      transparent)
-}
-
-/* body {
-  display: flex!important;
-  min-height: 100vh!important;
-  flex-direction: column!important;
-} */
-
-main {
-  flex: 1 0 auto!important;
-}
-.page-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  left: 0;
-  padding: 0;
-  background-color: #37474f;
-}
-
-#search{
-  position: static;
-}
-#search-bar, #message{
-  color: ivory;
- }
-
- #message{
-  width: 80%;
- }
-
- 
