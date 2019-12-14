@@ -50,7 +50,7 @@ let red = () => {
     $('#chat-window').css('color', '#212121')
     // $('.p-message').css('background-color', '#bdbdbd')
     $('#big-window').css('background-color', '#424242')
-    $('.page-footer').css('background-color', '#e0e0e0')
+    $('.page-footer').css('background-color', '#ae1717')
 }
 let yellow = () => {
     // console.log('working')
