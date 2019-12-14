@@ -32,6 +32,10 @@ body {
   padding-top: 0;
 }
 
+#color-buttons {
+  margin-left:auto;
+  max-width: 200px;
+}
 .color-buttons:hover {
   cursor: pointer;
 }

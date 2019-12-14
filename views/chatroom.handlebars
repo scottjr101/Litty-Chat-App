@@ -9,12 +9,12 @@
 
             {{!-- instead of handle form, pull user name --}}
               
-            <div class="roow">
-            <div title="Log in to change usernames" class="col s6">User Name:
-              <span id="handle" type="text" placeholder="Handle">{{name}}</span>
+            
+            <div title="Log in to change usernames" class="col s4">User Name:
+              <span id="handle" type="text" placeholder="Handle"><strong>{{name}}</strong></span>
             </div>
             
-            <div id="color-buttons" class="col s6 offest-s6">
+            <div id="color-buttons">
               <i class="material-icons color-buttons grey-text text-darken-3" data-color="dark" title="Dark Mode">lens</i>
               <i class="material-icons color-buttons orange-text text-accent-4" data-color="orange" title="Orange Fever">lens</i>
               <i class="material-icons color-buttons cyan-text text-lighten-5" data-color="light" title="Light Mode">lens</i>
@@ -23,7 +23,7 @@
               <i class="material-icons color-buttons yellow-text text-darken-1" data-color="yellow" title="Yellow Eye Scorcher">lens</i>
               <i class="material-icons color-buttons green-text text-darken-1" data-color="green" title="Leaf Green">lens</i>
             </div>
-            </div>
+            
             <div id="chat-window">
               {{!-- NTA color coding for output/feedback; round these corners!! --}}
               {{#each litty}}
