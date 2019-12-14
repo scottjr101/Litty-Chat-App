@@ -41,14 +41,13 @@ body {
 }
 
 #chat-window {
-  /* height: 100%; */
-  /* overflow: auto; */
   border-radius: 5px;
+  padding: 5px;
   background: #585757;
   color: #cacaca;
   overflow-y: scroll;
-  height: 56vh;
-  padding: 1rem;
+  height: 55vh;
+  width: 100%;
 }
 
 .p-message {
