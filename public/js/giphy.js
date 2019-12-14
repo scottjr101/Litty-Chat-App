@@ -58,7 +58,7 @@ $(document).ready(function () {
         var animatePic = this.attributes[4].nodeValue
 
         // $(message).val('<img src="' + animatePic + '">')
- 
+
         //addes embeded url to message
         $(message).val(`
         <img class="sent-gif" src = "${animatePic}">

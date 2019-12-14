@@ -17,16 +17,18 @@ app.engine(
   "handlebars",
   exphbs({
     defaultLayout: "main",
-    partialsDir  : [
+    partialsDir: [
       //  path to your partials
       path.join(__dirname, 'views/partials'),
-  ]
+    ]
   })
 );
 app.set("view engine", "handlebars");
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -50,7 +52,9 @@ app.use(passport.session());
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app, passport, db);
 
-var syncOptions = { force: false };
+var syncOptions = {
+  force: false
+};
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
@@ -62,8 +66,8 @@ if (process.env.NODE_ENV === "test") {
 require('./config/passport')(passport, db.Users);
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  var server = app.listen(PORT, function() {
+db.sequelize.sync(syncOptions).then(function () {
+  var server = app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
@@ -73,16 +77,16 @@ db.sequelize.sync(syncOptions).then(function() {
 
   //socket connection established
   var io = socket(server);
-  io.on('connection', (socket) =>{
+  io.on('connection', (socket) => {
     // db.sequelize.sync(syncOptions).then(function() {
     console.log('made socket connection', socket.id);
-    
-    socket.on('chat', function(data){
+
+    socket.on('chat', function (data) {
       io.sockets.emit('chat', data);
       console.log('chat data: ' + data.message)
     });
 
-    socket.on('typing', function(data){
+    socket.on('typing', function (data) {
       socket.broadcast.emit('typing', data)
       // console.log('working')
     })
@@ -90,8 +94,8 @@ db.sequelize.sync(syncOptions).then(function() {
     socket.on('user image', function (msg) {
       //Received an image: broadcast to all
       socket.broadcast.emit('user image', socket.nickname, msg);
-  });
-  
+    });
+
   })
 });
 

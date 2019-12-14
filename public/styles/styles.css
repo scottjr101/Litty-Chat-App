@@ -1,5 +1,3 @@
-
-
 /* .list-group-item {
   line-height: 2.5;
 } */
@@ -28,14 +26,15 @@ body {
   border-radius: 10px;
 }
 
-#chatroom-card{
+#chatroom-card {
   padding-top: 0;
 }
 
 #color-buttons {
-  margin-left:auto;
+  margin-left: auto;
   max-width: 200px;
 }
+
 .color-buttons:hover {
   cursor: pointer;
 }
@@ -55,13 +54,14 @@ body {
   border-radius: 10px;
 }
 
-.output-div, .feedback-div {
+.output-div,
+.feedback-div {
   border-radius: 10px;
 }
 
 #message-input-div {
   /* padding: 0px 24px; */
-  margin: auto ;
+  margin: auto;
 }
 
 #welcome-title {
@@ -94,7 +94,7 @@ img.active {
   float: right;
   width: 15%;
   margin: 10px 0px 0px;
-  
+
 }
 
 .btn.waves-effect.waves-light {
@@ -154,8 +154,9 @@ img.active {
 }
 
 main {
-  flex: 1 0 auto!important;
+  flex: 1 0 auto !important;
 }
+
 .page-footer {
   position: fixed;
   bottom: 0;
@@ -165,23 +166,25 @@ main {
   background-color: #37474f;
 }
 
-#search{
+#search {
   position: static;
 }
-#search-bar, #message{
+
+#search-bar,
+#message {
   color: ivory;
- }
+}
 
- #message{
+#message {
   width: 80%;
- }
+}
 
- .old-message img{
+.old-message img {
   max-width: 100%;
- }
+}
 
 
- /* #output p{
+/* #output p{
   padding: 14px 0px;
   margin: 0 20px;
   color: #555;

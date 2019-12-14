@@ -1,10 +1,3 @@
-let $colorScheme = $('.color-schema')
-
-
-
-
-
-
 let orange = () => {
     $('body').css('background-color', '#d84315')
     $('.nav-wrapper').css('background-color', '#ff5722')
@@ -103,15 +96,3 @@ $('.color-buttons').on('click', function () {
             break;
     }
 })
-
-// switch(color){
-//     case "default":
-//         original()
-//         break;
-//     case "dark":
-//         dark()
-//         break;
-//     case "light":
-//         light()
-//         break;
-// }
