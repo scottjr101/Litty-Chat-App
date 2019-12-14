@@ -139,7 +139,10 @@ img.active {
 }
 
 #sendIt {
-  margin-bottom: 8px;
+  float: right;
+  width: 15%;
+  margin: 10px 0px 0px;
+  
 }
 
 .btn.waves-effect.waves-light {
@@ -244,4 +247,8 @@ main {
 }
 #search-bar, #message{
   color: ivory;
+ }
+
+ #message{
+  width: 80%;
  }
