@@ -138,9 +138,9 @@ img.active {
   border: 4px solid black;
 }
 
-#sendIt {
-  margin-bottom: 8px;
-}
+/* #sendIt {
+  margin: auto;
+} */
 
 .btn.waves-effect.waves-light {
   border-radius: 10px;
