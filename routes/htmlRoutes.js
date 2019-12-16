@@ -10,12 +10,12 @@ module.exports = function (app, passport, db) {
   const sequelize = db.sequelize
   app.get('/chat', ensureAuthenticated, function (req, res) {
     db.Litty.findAll({
-      where: {
-        createdAt: {
-          [Op.lt]: new Date(),
-          [Op.gt]: new Date(new Date() - 24 * 60 * 60 * 1000)
-        }
-      },
+      // where: {
+      //   createdAt: {
+      //     [Op.lt]: new Date(),
+      //     [Op.gt]: new Date(new Date() - 24 * 60 * 60 * 1000)
+      //   }
+      // },
       // order: [
       //   ['id', 'DESC']
       // ],
