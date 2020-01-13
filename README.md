@@ -43,3 +43,8 @@ This App is deployed on *Heroku* [click Here](https://intense-tor-53215.herokuap
     * Sequelize
 * Git
 * GitHub
+
+- - -
+
+## Commits
+[Click Here](https://github.com/scottjr101/Litty-Chat-App/graphs/contributors) to view everyone that contributed to this project.
