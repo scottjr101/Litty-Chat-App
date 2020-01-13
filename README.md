@@ -40,5 +40,6 @@ This App is deployed on *Heroku* [click Here](https://intense-tor-53215.herokuap
     * Connect-Flash
     * Express-Handlebars
     * MySQL
+    * Sequelize
 * Git
 * GitHub
